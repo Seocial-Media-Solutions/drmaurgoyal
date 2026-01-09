@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://drmayurkumagoyal.com
+
+# Sitemaps
+Sitemap: https://drmayurkumagoyal.com/sitemap.xml
+Sitemap: https://drmayurkumargoyal.com/sitemap.xml
