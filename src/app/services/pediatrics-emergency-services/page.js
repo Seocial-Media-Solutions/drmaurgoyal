@@ -26,12 +26,12 @@ export const metadata = {
         url: '/images/pediatrics-emergency-services.jpg',
         width: 1200,
         height: 630,
-        alt: 'Emergency pediatric care at Mayur Child Care Center',
+        alt: 'Emergency pediatric care at Mayur Childern Hospital',
       },
     ],
     type: 'website',
     url: 'https://drmayurkumargoyal.com/services/pediatrics-emergency-services',
-    siteName: 'Mayur Child Care Center',
+    siteName: 'Mayur Childern Hospital',
   },
   alternates: {
     canonical: 'https://drmayurkumargoyal.com/services/pediatrics-emergency-services',
@@ -53,14 +53,14 @@ export const metadata = {
     images: ['/images/pediatrics-emergency-services.jpg'],
   },
   other: {
-    'application-name': 'Mayur Child Care Center',
+    'application-name': 'Mayur Childern Hospital',
     author: 'Dr. Mayur Kumar Goyal',
     generator: 'Next.js',
     'theme-color': '#ffffff',
   },
   about: {
     description:
-      'This page highlights pediatric emergency services by Dr. Mayur Kumar Goyal at Mayur Child Care Center in Ajmer - Offering rapid and expert treatment for children requiring urgent medical attention, trauma care, or emergency diagnosis.',
+      'This page highlights pediatric emergency services by Dr. Mayur Kumar Goyal at Mayur Childern Hospital in Ajmer - Offering rapid and expert treatment for children requiring urgent medical attention, trauma care, or emergency diagnosis.',
   },
 };
 

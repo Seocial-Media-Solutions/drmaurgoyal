@@ -8,7 +8,7 @@ import VaccinationPrograms from "@/components/VaccinationPrograms";
 export const metadata = {
   title: 'Child Vaccination Programs - Newborn Doctor in Ajmer',
   description:
-    'Protect your child’s health with safe and timely vaccinations at Mayur Child Care Center in Ajmer. Dr. Mayur Kumar Goyal offers complete immunization programs for newborns and children.',
+    'Protect your child’s health with safe and timely vaccinations at Mayur Childern Hospital in Ajmer. Dr. Mayur Kumar Goyal offers complete immunization programs for newborns and children.',
   keywords: [
     'vaccination programs Ajmer',
     'child vaccination center',
@@ -24,18 +24,18 @@ export const metadata = {
   openGraph: {
     title: 'Vaccination Services for Children - Pediatrician in Ajmer',
     description:
-      'Explore comprehensive vaccination services at Mayur Child Care Center by Dr. Mayur Kumar Goyal. Expert care for newborn and child immunization schedules.',
+      'Explore comprehensive vaccination services at Mayur Childern Hospital by Dr. Mayur Kumar Goyal. Expert care for newborn and child immunization schedules.',
     images: [
       {
         url: '/images/vaccination-services.jpg',
         width: 1200,
         height: 630,
-        alt: 'Child vaccination program at Mayur Child Care Center',
+        alt: 'Child vaccination program at Mayur Childern Hospital',
       },
     ],
     type: 'website',
     url: 'https://drmayurkumargoyal.com/services/vacination-programs',
-    siteName: 'Mayur Child Care Center',
+    siteName: 'Mayur Childern Hospital',
   },
   alternates: {
     canonical: 'https://drmayurkumargoyal.com/services/vacination-programs',
@@ -57,14 +57,14 @@ export const metadata = {
     images: ['/images/vaccination-services.jpg'],
   },
   other: {
-    'application-name': 'Mayur Child Care Center',
+    'application-name': 'Mayur Childern Hospital',
     author: 'Dr. Mayur Kumar Goyal',
     generator: 'Next.js',
     'theme-color': '#ffffff',
   },
   about: {
     description:
-      'This page explains the structured child and newborn vaccination programs available at Mayur Child Care Center, Ajmer. Learn about immunization schedules, vaccine safety, and expert pediatric guidance by Dr. Mayur Kumar Goyal.',
+      'This page explains the structured child and newborn vaccination programs available at Mayur Childern Hospital, Ajmer. Learn about immunization schedules, vaccine safety, and expert pediatric guidance by Dr. Mayur Kumar Goyal.',
   },
 };
 

@@ -14,7 +14,7 @@ const GalleryPage = () => {
   const galleryImages = [
     {
       src: '/images/slide2.webp',
-      alt: 'Mayur Child Care Center Reception'
+      alt: 'Mayur Childern Hospital Reception'
     },
     {
       src: '/images/slideimg.webp',
@@ -206,7 +206,7 @@ const GalleryPage = () => {
             transition={{ delay: 0.8, duration: 1 }}
             className="mt-16 text-center bg-gradient-to-r from-teal-500 to-teal-600 p-8 md:p-12 rounded-2xl shadow-xl text-white"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit Mayur Child Care Center</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit Mayur Childern Hospital</h2>
             <p className="text-lg mb-8 max-w-3xl mx-auto">
               Experience our world-class pediatric facilities in person. Schedule an appointment with Dr. Mayur Goyal today.
             </p>

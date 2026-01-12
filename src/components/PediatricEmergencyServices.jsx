@@ -19,7 +19,7 @@ const PediatricEmergencyServices = () => {
 
         <div className="bg-red-50 p-4 rounded-lg mb-8">
           <p className="text-gray-800">
-            Children can fall sick or get injured unexpectedly — and in those critical moments, you need a team you can trust. At Mayur Child Care Center, our Pediatric Emergency Services are available 24 hours a day, 7 days a week, to provide immediate, specialized care for newborns, infants, children, and teenagers.
+            Children can fall sick or get injured unexpectedly — and in those critical moments, you need a team you can trust. At Mayur Childern Hospital, our Pediatric Emergency Services are available 24 hours a day, 7 days a week, to provide immediate, specialized care for newborns, infants, children, and teenagers.
           </p>
         </div>
 

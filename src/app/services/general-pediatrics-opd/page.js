@@ -17,7 +17,7 @@ export const metadata = {
     'best pediatric services'
   ],
   openGraph: {
-    title: 'General Pediatrics OPD | Mayur Child Care Center Ajmer',
+    title: 'General Pediatrics OPD | Mayur Childern Hospital Ajmer',
     description:
       'Book your child’s appointment with Dr. Mayur Kumar Goyal at our General Pediatrics OPD. Trusted pediatric care, growth monitoring, and complete wellness support.',
     images: [
@@ -25,12 +25,12 @@ export const metadata = {
         url: '/images/services-pediatric.jpg',
         width: 1200,
         height: 630,
-        alt: 'Child specialist examining a baby at Mayur Child Care Center',
+        alt: 'Child specialist examining a baby at Mayur Childern Hospital',
       },
     ],
     type: 'website',
     url: 'https://drmayurkumargoyal.com/services/general-pediatrics-opd',
-    siteName: 'Mayur Child Care Center',
+    siteName: 'Mayur Childern Hospital',
   },
   alternates: {
     canonical: 'https://drmayurkumargoyal.com/services/general-pediatrics-opd',
@@ -46,13 +46,13 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'General Pediatrics OPD in Ajmer | Mayur Child Care Center',
+    title: 'General Pediatrics OPD in Ajmer | Mayur Childern Hospital',
     description:
       'Expert child care and pediatric consultations by Dr. Mayur Kumar Goyal in Ajmer. Visit our OPD for personalized child health services.',
     images: ['/images/services-pediatric.jpg'],
   },
   other: {
-    'application-name': 'Mayur Child Care Center',
+    'application-name': 'Mayur Childern Hospital',
     author: 'Dr. Mayur Kumar Goyal',
     generator: 'Next.js',
     'theme-color': '#ffffff',

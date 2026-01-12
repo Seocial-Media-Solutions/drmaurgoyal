@@ -20,16 +20,16 @@ const Footer = () => {
             <div className="mb-4 flex flex-col items-center lg:items-start">
               <Link href="/" className="inline-block mb-3">
                 <Image 
-                  src="/images/mayurchildcare.png" 
-                  alt="Mayur Child Care Center Logo" 
+                  src="/images/NewLogo.jpeg" 
+                  alt="Mayur Childern Hospital Logo" 
                   width={140} 
                   height={50}
-                  className="h-auto w-auto"
+                  className="h-auto w-auto rounded-full"
                 />
               </Link>
              
               <h2 className="text-lg lg:text-xl font-semibold bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent text-center lg:text-left">
-                Mayur Child Care Center
+                Mayur Childern Hospital
               </h2>
             </div>
              
@@ -203,10 +203,10 @@ const Footer = () => {
             </h3>
             
             <div className="space-y-4 w-full">
-              {/* Mayur Child Care Center Timings */}
+              {/* Mayur Childern Hospital Timings */}
               <div className="p-4 rounded-lg bg-[#1d2e2b] backdrop-blur-sm">
                 <div className="mb-3 font-medium text-white bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent text-sm">
-                  MAYUR CHILD CARE CENTER
+                  Mayur Childern Hospital
                 </div>
                 <div className="text-gray-200 text-sm space-y-1">
                   <p><span className="text-gray-400">Mon - Sat:</span></p>
@@ -234,7 +234,7 @@ const Footer = () => {
         <div className="border-t text-[15px] border-green-900/30 mt-10 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 mb-4 md:mb-0 text-center md:text-left">
-              © {new Date().getFullYear()} <span className="bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent font-medium">Mayur Child Care Center</span>. All rights reserved.
+              © {new Date().getFullYear()} <span className="bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent font-medium">Mayur Childern Hospital</span>. All rights reserved.
             </div>
             <p className="text-center text-gray-500">
               Powered by{" "}

@@ -9,13 +9,13 @@ import PatientReviews from "@/components/PatientReviews";
 
   export const metadata = {
   title: 'Best Pediatrician in Ajmer | Dr. Mayur Kumar Goyal',
-  description: 'Dr. Mayur Kumar Goyal, leading pediatrician and neonatologist in Ajmer, offers expert newborn care, vaccinations, and child health services at Mayur Child Care Center.',
+  description: 'Dr. Mayur Kumar Goyal, leading pediatrician and neonatologist in Ajmer, offers expert newborn care, vaccinations, and child health services at Mayur Childern Hospital.',
   keywords: [
     'best pediatrician in Ajmer',
     'child specialist doctor',
     'newborn baby doctor',
     'Dr. Mayur Kumar Goyal',
-    'Mayur Child Care Center',
+    'Mayur Childern Hospital',
     'neonatal specialist Ajmer',
     'child vaccination center',
     'pediatric clinic Ajmer',
@@ -24,7 +24,7 @@ import PatientReviews from "@/components/PatientReviews";
   ],
   openGraph: {
     title: 'Top Pediatrician in Ajmer | Dr. Mayur Kumar Goyal',
-    description: 'Expert pediatric and neonatal care at Mayur Child Care Center in Ajmer. Specializing in newborn care, immunizations, and child health services.',
+    description: 'Expert pediatric and neonatal care at Mayur Childern Hospital in Ajmer. Specializing in newborn care, immunizations, and child health services.',
     images: [
       {
         url: '/images/dr-mayur-profile.jpg',
@@ -35,7 +35,7 @@ import PatientReviews from "@/components/PatientReviews";
     ],
     type: 'website',
     url: 'https://www.drmayurkumargoyal.com',
-    siteName: 'Mayur Child Care Center',
+    siteName: 'Mayur Childern Hospital',
   },
   alternates: {
     canonical: 'https://www.drmayurkumargoyal.com',
@@ -52,11 +52,11 @@ import PatientReviews from "@/components/PatientReviews";
   twitter: {
     card: 'summary_large_image',
     title: 'Best Pediatrician in Ajmer | Dr. Mayur Kumar Goyal',
-    description: 'Specialized pediatric and neonatal care at Mayur Child Care Center, Ajmer',
+    description: 'Specialized pediatric and neonatal care at Mayur Childern Hospital, Ajmer',
     images: ['/images/doctor.png'],
   },
   other: {
-    'application-name': 'Mayur Child Care Center',
+    'application-name': 'Mayur Childern Hospital',
     'author': 'Dr. Mayur Kumar Goyal',
     'generator': 'Next.js',
     'theme-color': '#ffffff',

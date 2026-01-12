@@ -73,7 +73,7 @@ const FAQSection = () => {
 
 const faqData = [
   {
-    question: "What services does Mayur Child Care Center offer?",
+    question: "What services does Mayur Childern Hospital offer?",
     answer:
       "We offer complete child care services including: General Pediatrics OPD for regular check-ups and common illnesses, 24x7 Pediatric Emergency Care, Advanced Pediatric Critical Care (PICU), Newborn Screening tests, Vaccination Programs for all ages, and Adolescent Health Services for teenagers. We also offer comprehensive support services including physiotherapy, nutritional counseling, and supportive care."
   },
@@ -127,7 +127,7 @@ const faqData = [
         >
           <img 
             src="/images/mayurchildcare.png" 
-            alt="Mayur Child Care Center" 
+            alt="Mayur Childern Hospital" 
             className="h-44 w-auto object-contain"
           />
         </motion.div>
@@ -140,7 +140,7 @@ const faqData = [
           transition={{ duration: 0.5 }}
         >
           If you're looking for more information about <br className="hidden sm:block" />
-          <span className="text-teal-600">Mayur Child Care Center</span>, we'd love to help.
+          <span className="text-teal-600">Mayur Childern Hospital</span>, we'd love to help.
         </motion.h2>
         
         <motion.p 

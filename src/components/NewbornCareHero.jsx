@@ -77,7 +77,7 @@ const NewbornCareHero = () => {
             className="text-gray-600 md:text-xl text-lg mb-8"
             variants={itemVariants}
           >
-            The first few months of your baby's life are filled with rapid development and special care needs. Mayur Child Care Center provides expert guidance on common newborn symptoms, essential care practices, and preventive measures. Learn to identify signs that need attention and discover proven techniques for nurturing your newborn's health and well-being during this crucial developmental stage.
+            The first few months of your baby's life are filled with rapid development and special care needs. Mayur Childern Hospital provides expert guidance on common newborn symptoms, essential care practices, and preventive measures. Learn to identify signs that need attention and discover proven techniques for nurturing your newborn's health and well-being during this crucial developmental stage.
           </motion.p>
           
           {/* <motion.div 

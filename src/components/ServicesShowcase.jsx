@@ -105,7 +105,7 @@ const ServicesShowcase = () => {
             Specialized Pediatric Care
           </h1>
           <p className="text-gray-600 max-w-3xl md:text-xl text-lg mx-auto">
-            At Mayur Child Care Center, we offer a comprehensive range of pediatric services
+            At Mayur Childern Hospital, we offer a comprehensive range of pediatric services
             designed to meet the unique needs of your child at every stage of development.
           </p>
         </motion.div>

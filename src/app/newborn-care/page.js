@@ -21,18 +21,18 @@ export const metadata = {
   openGraph: {
     title: 'Newborn Care Services - Pediatrician and Child Doctor in Ajmer',
     description:
-      'Comprehensive newborn healthcare by Dr. Mayur Kumar Goyal at Mayur Child Care Center. Visit the best pediatrician and child specialist in Ajmer.',
+      'Comprehensive newborn healthcare by Dr. Mayur Kumar Goyal at Mayur Childern Hospital. Visit the best pediatrician and child specialist in Ajmer.',
     images: [
       {
         url: '/images/newborn-care.jpg',
         width: 1200,
         height: 630,
-        alt: 'Newborn care at Mayur Child Care Center Ajmer',
+        alt: 'Newborn care at Mayur Childern Hospital Ajmer',
       },
     ],
     type: 'website',
     url: 'https://drmayurkumargoyal.com/newborn-care',
-    siteName: 'Mayur Child Care Center',
+    siteName: 'Mayur Childern Hospital',
   },
   alternates: {
     canonical: 'https://drmayurkumargoyal.com/newborn-care',
@@ -54,14 +54,14 @@ export const metadata = {
     images: ['/images/newborn-care.jpg'],
   },
   other: {
-    'application-name': 'Mayur Child Care Center',
+    'application-name': 'Mayur Childern Hospital',
     author: 'Dr. Mayur Kumar Goyal',
     generator: 'Next.js',
     'theme-color': '#ffffff',
   },
   about: {
     description:
-      'This page offers detailed information about specialized newborn care services at Mayur Child Care Center in Ajmer. Dr. Mayur Kumar Goyal, a leading pediatrician and newborn care expert, provides complete infant health support including vaccinations, checkups, and parental education.',
+      'This page offers detailed information about specialized newborn care services at Mayur Childern Hospital in Ajmer. Dr. Mayur Kumar Goyal, a leading pediatrician and newborn care expert, provides complete infant health support including vaccinations, checkups, and parental education.',
   },
 };
 

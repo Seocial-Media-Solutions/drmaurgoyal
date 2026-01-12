@@ -39,7 +39,7 @@ const AdolescentHealthServices = () => {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-indigo-800 mb-4">Why Choose Mayur Child Care Center for Your Teen&apos;s Health?</h3>
+          <h3 className="text-xl font-semibold text-indigo-800 mb-4">Why Choose Mayur Childern Hospital for Your Teen&apos;s Health?</h3>
           <ul className="space-y-2 text-gray-700">
             <li>✅ Comprehensive care for both physical and mental health</li>
             <li>✅ Private, confidential consultations with caring pediatricians</li>

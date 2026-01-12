@@ -88,7 +88,7 @@ const PediatricServices = () => {
             className="text-gray-600 mb-8 md:text-xl text-lg"
             variants={itemVariants}
           >
-            Mayur Child Care Center provides center-based pediatric therapy services including
+            Mayur Childern Hospital provides center-based pediatric therapy services including
             Applied Behavior Analysis (ABA), Pediatric Speech Therapy, Pediatric
             Occupational Therapy (OT), and Pediatric Physical Therapy (PT) at Ajmer.
           </motion.p>

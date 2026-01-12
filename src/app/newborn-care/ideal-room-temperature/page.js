@@ -30,7 +30,7 @@ export const metadata = {
     ],
     type: 'article',
     url: 'https://www.drmayurkumargoyal.com/newborn-care/ideal-room-temperature',
-    siteName: 'Mayur Child Care Center',
+    siteName: 'Mayur Childern Hospital',
   },
   alternates: {
     canonical: 'https://www.drmayurkumargoyal.com/newborn-care/ideal-room-temperature',
@@ -52,7 +52,7 @@ export const metadata = {
     images: ['/images/ideal-room-temperature.jpg'],
   },
   other: {
-    'application-name': 'Mayur Child Care Center',
+    'application-name': 'Mayur Childern Hospital',
     author: 'Dr. Mayur Kumar Goyal',
     generator: 'Next.js',
     'theme-color': '#ffffff',

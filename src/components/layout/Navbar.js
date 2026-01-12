@@ -252,23 +252,23 @@ const Navbar = () => {
       <nav ref={navbarRef} className="bg-gradient-to-r from-blue-50 to-teal-50 shadow-lg w-full sticky top-0 z-50 border-b-2 border-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 md:h-20">
-            {/* Logo */}
+            {/*  newLogo */}
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center">
                 <div className="h-16 w-16   ml-[-20px] md:h-20 md:w-20 relative">
                   <Image 
-                    src="/images/mayurchildcare.png" 
-                    alt="Mayur Child Care Center Logo" 
+                    src="/images/NewLogo.jpeg" 
+                    alt="Mayur Childern Hospital Logo" 
                     width={100}
                     height={100}
                     priority
-                    className="object-contain"
+                    className="object-contain rounded-full"
                     unoptimized={true}
                   />
                 </div>
                 <div className="ml-2">
                   <h2 className="text-lg md:text-xl font-bold bg-gradient-to-r from-[#00bcd4] via-[#9c27b0] to-[#e50087] bg-clip-text text-transparent">
-                    Mayur Child Care Center
+                    Mayur Childern Hospital
                   </h2>
                 </div>
               </Link>

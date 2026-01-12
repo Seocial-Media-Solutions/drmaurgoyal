@@ -19,7 +19,7 @@ const GeneralPediatricsOPD = () => {
 
         <div className="bg-blue-50 p-4 rounded-lg mb-8">
           <p className="text-gray-800">
-            At Mayur Child Care Center, our General Pediatrics OPD is your first stop for expert, compassionate care for children from birth to 18 years. Led by our Medical Director, Dr. Mayur Goyal (MD, Pediatrics, Fellow Neonatology (IAP)), and his team are committed to keeping your child healthy, happy, and thriving.
+            At Mayur Childern Hospital, our General Pediatrics OPD is your first stop for expert, compassionate care for children from birth to 18 years. Led by our Medical Director, Dr. Mayur Goyal (MD, Pediatrics, Fellow Neonatology (IAP)), and his team are committed to keeping your child healthy, happy, and thriving.
           </p>
         </div>
 

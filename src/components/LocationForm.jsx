@@ -105,7 +105,7 @@ function PhoneInputComponent() {
           phone: formData.phone,
           subject: formData.subject || "Inquiry from Website",
           message: formData.message,
-          from_name: "Mayur Child Care Center Inquiry"
+          from_name: "Mayur Childern Hospital Inquiry"
         }),
       });
 

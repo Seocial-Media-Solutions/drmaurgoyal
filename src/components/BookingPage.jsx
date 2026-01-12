@@ -37,7 +37,7 @@ const BookingSystem = () => {
       start: '11:00',
       end: '13:00',
       isClosed: false,
-      location: "Mayur Child Care Center, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
+      location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     1: { // Monday
       start1: '09:00',
@@ -45,7 +45,7 @@ const BookingSystem = () => {
       start2: '17:00',
       end2: '20:00',
       isClosed: false,
-      location: "Mayur Child Care Center, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
+      location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     2: { // Tuesday
       start1: '09:00',
@@ -53,7 +53,7 @@ const BookingSystem = () => {
       start2: '17:00',
       end2: '20:00',
       isClosed: false,
-      location: "Mayur Child Care Center, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
+      location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     3: { // Wednesday
       start1: '09:00',
@@ -61,7 +61,7 @@ const BookingSystem = () => {
       start2: '17:00',
       end2: '20:00',
       isClosed: false,
-      location: "Mayur Child Care Center, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
+      location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     4: { // Thursday
       start1: '09:00',
@@ -69,7 +69,7 @@ const BookingSystem = () => {
       start2: '17:00',
       end2: '20:00',
       isClosed: false,
-      location: "Mayur Child Care Center, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
+      location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     5: { // Friday
       start1: '09:00',
@@ -77,7 +77,7 @@ const BookingSystem = () => {
       start2: '17:00',
       end2: '20:00',
       isClosed: false,
-      location: "Mayur Child Care Center, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
+      location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     6: { // Saturday
       start1: '09:00',
@@ -85,7 +85,7 @@ const BookingSystem = () => {
       start2: '17:00',
       end2: '20:00',
       isClosed: false,
-      location: "Mayur Child Care Center, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
+      location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     }
   };
 
@@ -472,7 +472,7 @@ const BookingSystem = () => {
         )}
         
         <div className="p-4 bg-gradient-to-r from-blue-100 to-teal-100 bg-opacity-20 rounded-md text-teal-800">
-          <h3 className="font-bold text-lg mb-2 text-teal-800">Mayur Child Care Center</h3>
+          <h3 className="font-bold text-lg mb-2 text-teal-800">Mayur Childern Hospital</h3>
           <p className="mb-1">B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer</p>
           <p className="mb-1">Phone: 8955966990</p>
         </div>

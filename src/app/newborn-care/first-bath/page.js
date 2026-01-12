@@ -24,12 +24,12 @@ import FirstBathGuide from "@/components/FirstBathGuide";export const metadata =
         url: '/images/newborn-first-bath.jpg',
         width: 1200,
         height: 630,
-        alt: 'First bath for newborn at Mayur Child Care Center',
+        alt: 'First bath for newborn at Mayur Childern Hospital',
       },
     ],
     type: 'article',
     url: 'https://www.drmayurkumargoyal.com/newborn-care/first-bath',
-    siteName: 'Mayur Child Care Center',
+    siteName: 'Mayur Childern Hospital',
   },
   alternates: {
     canonical: 'https://www.drmayurkumargoyal.com/newborn-care/first-bath',
@@ -51,7 +51,7 @@ import FirstBathGuide from "@/components/FirstBathGuide";export const metadata =
     images: ['/images/newborn-first-bath.jpg'],
   },
   other: {
-    'application-name': 'Mayur Child Care Center',
+    'application-name': 'Mayur Childern Hospital',
     author: 'Dr. Mayur Kumar Goyal',
     generator: 'Next.js',
     'theme-color': '#ffffff',

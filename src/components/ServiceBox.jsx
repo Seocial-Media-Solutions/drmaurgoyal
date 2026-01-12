@@ -166,7 +166,7 @@ const ServiceBoxes = () => {
       sections: [
         {
           question: "Expert Pediatric Care",
-          answer: "At Mayur Child Care Center, our General Pediatrics OPD is your first stop for expert, compassionate care for children from birth to 18 years. Led by our Medical Director, Dr. Mayur Goyal (MD, Pediatrics, Fellow Neonatology (IAP)), and his team are committed to keeping your child healthy, happy, and thriving."
+          answer: "At Mayur Childern Hospital, our General Pediatrics OPD is your first stop for expert, compassionate care for children from birth to 18 years. Led by our Medical Director, Dr. Mayur Goyal (MD, Pediatrics, Fellow Neonatology (IAP)), and his team are committed to keeping your child healthy, happy, and thriving."
         },
         {
           question: "Comprehensive Services",
@@ -359,7 +359,7 @@ const ServiceBoxes = () => {
           ]
         },
         {
-          question: "Why Get Vaccinated at Mayur Child Care Center?",
+          question: "Why Get Vaccinated at Mayur Childern Hospital?",
           answer: [
             "✅ Certified vaccines stored under strict quality conditions",
             "✅ Expert vaccination counseling and reminders",
@@ -402,7 +402,7 @@ const ServiceBoxes = () => {
           ]
         },
         {
-          question: "Why Choose Mayur Child Care Center for Your Teen's Health?",
+          question: "Why Choose Mayur Childern Hospital for Your Teen's Health?",
           answer: [
             "✅ Comprehensive care for both physical and mental health",
             "✅ Private, confidential consultations with caring pediatricians",

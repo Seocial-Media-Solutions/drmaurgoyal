@@ -30,7 +30,7 @@ export const metadata = {
     ],
     type: 'article',
     url: 'https://www.drmayurkumargoyal.com/newborn-care/common-conditions',
-    siteName: 'Mayur Child Care Center',
+    siteName: 'Mayur Childern Hospital',
   },
   alternates: {
     canonical: 'https://www.drmayurkumargoyal.com/newborn-care/common-conditions',
@@ -52,7 +52,7 @@ export const metadata = {
     images: ['/images/common-newborn-conditions.jpg'],
   },
   other: {
-    'application-name': 'Mayur Child Care Center',
+    'application-name': 'Mayur Childern Hospital',
     author: 'Dr. Mayur Kumar Goyal',
     generator: 'Next.js',
     'theme-color': '#ffffff',

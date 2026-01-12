@@ -18,19 +18,19 @@ export const metadata = {
       'emergency pediatric consultation'
     ],
     openGraph: {
-      title: 'Book Pediatric Appointment | Mayur Child Care Center - Ajmer',
+      title: 'Book Pediatric Appointment | Mayur Childern Hospital - Ajmer',
       description: 'Easy online booking for pediatric consultations with Dr. Mayur Kumar Goyal. Schedule vaccinations, newborn checks, and child health services.',
       images: [
         {
           url: '/images/booking-hero.jpg',
           width: 800,
           height: 600,
-          alt: 'Book Appointment at Mayur Child Care Center',
+          alt: 'Book Appointment at Mayur Childern Hospital',
         },
       ],
       type: 'website',
       url: 'https://www.drmayurkumargoyal.com/bookconsultation',
-      siteName: 'Mayur Child Care Center',
+      siteName: 'Mayur Childern Hospital',
     },
     alternates: {
       canonical: 'https://www.drmayurkumargoyal.com/bookconsultation',
@@ -51,7 +51,7 @@ export const metadata = {
       images: ['/images/booking-hero.jpg'],
     },
     other: {
-      'application-name': 'Mayur Child Care Center',
+      'application-name': 'Mayur Childern Hospital',
       'author': 'Dr. Mayur Kumar Goyal',
       'generator': 'Next.js',
       'theme-color': '#ffffff',

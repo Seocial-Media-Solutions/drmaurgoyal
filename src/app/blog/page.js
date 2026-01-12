@@ -36,12 +36,12 @@ export const metadata = {
         url: '/images/blog-banner.jpg',
         width: 1200,
         height: 630,
-        alt: 'Pediatric health blog illustration at Mayur Child Care Center',
+        alt: 'Pediatric health blog illustration at Mayur Childern Hospital',
       },
     ],
     type: 'website',
     url: 'https://drmayurkumargoyal.com/blog',
-    siteName: 'Mayur Child Care Center',
+    siteName: 'Mayur Childern Hospital',
   },
   alternates: {
     canonical: 'https://drmayurkumargoyal.com/blog',
@@ -63,7 +63,7 @@ export const metadata = {
     images: ['/images/blog-banner.jpg'],
   },
   other: {
-    'application-name': 'Mayur Child Care Center',
+    'application-name': 'Mayur Childern Hospital',
     author: 'Dr. Mayur Kumar Goyal',
     generator: 'Next.js',
     'theme-color': '#ffffff',

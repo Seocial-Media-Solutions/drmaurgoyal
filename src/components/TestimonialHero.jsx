@@ -63,7 +63,7 @@ const TestimonialHero = () => {
             className="uppercase text-gray-700 text-xl font-bold tracking-wider mb-4"
             variants={itemVariants}
           >
-            Mayur Child Care Center Testimonials
+            Mayur Childern Hospital Testimonials
           </motion.h1>
           
           <motion.h2 
@@ -77,7 +77,7 @@ const TestimonialHero = () => {
             className="text-gray-600 md:text-xl text-lg mb-8"
             variants={itemVariants}
           >
-            Discover why families throughout Ajmer trust Mayur Child Care Center with their children's early development and education. Our dedicated team has helped countless children thrive in a nurturing environment that fosters growth, learning, and joy.
+            Discover why families throughout Ajmer trust Mayur Childern Hospital with their children's early development and education. Our dedicated team has helped countless children thrive in a nurturing environment that fosters growth, learning, and joy.
           </motion.p>
           
           {/* <motion.div 
@@ -128,7 +128,7 @@ const TestimonialHero = () => {
             >
               <Image
                 src="/images/testimonial.webp" 
-                alt="Happy families and children at Mayur Child Care Center"
+                alt="Happy families and children at Mayur Childern Hospital"
                 fill
                 className="object-fit"
                 sizes="(max-width: 768px) 100vw, 50vw"

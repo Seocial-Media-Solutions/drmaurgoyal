@@ -63,7 +63,7 @@ const LocationHero = () => {
             className="uppercase text-gray-700 text-xl font-bold tracking-wider mb-4"
             variants={itemVariants}
           >
-          Mayur Child Care Center Location
+          Mayur Childern Hospital Location
           </motion.h1>
           
           <motion.h2 
@@ -77,7 +77,7 @@ const LocationHero = () => {
             className="text-gray-600 mb-8 md:text-xl text-lg"
             variants={itemVariants}
           >
-           Mayur Child Care Center is located in Ajmer and offers quality care for children. You can find us at B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer, Rajasthan, 305001.
+           Mayur Childern Hospital is located in Ajmer and offers quality care for children. You can find us at B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer, Rajasthan, 305001.
           </motion.p>
           
           {/* <motion.div 

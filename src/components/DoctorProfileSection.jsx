@@ -171,11 +171,11 @@ const DoctorProfileSection = () => {
                 className="text-1xl md:text-2xl font-bold text-gray-900 mb-4"
                 variants={fadeInUp}
               >
-                Director  — Mayur Child Care Center
+                Director  — Mayur Childern Hospital
               </motion.h2>
               <div className="space-y-4 text-justify text-lg text-gray-600">
                 <motion.p  variants={fadeInUp}>
-                <strong> Dr. Mayur Kumar Goyal </strong> is widely regarded as one of the best child specialists in Ajmer, dedicating his practice to the health and well-being of children since 2017. He is the founder and chief consultant at <strong> Mayur Child Care Center </strong>, a trusted pediatric facility located near Lions Club, Vaishali Nagar, Ajmer, where families across the city and nearby regions seek specialized care for their little ones.
+                <strong> Dr. Mayur Kumar Goyal </strong> is widely regarded as one of the best child specialists in Ajmer, dedicating his practice to the health and well-being of children since 2017. He is the founder and chief consultant at <strong> Mayur Childern Hospital </strong>, a trusted pediatric facility located near Lions Club, Vaishali Nagar, Ajmer, where families across the city and nearby regions seek specialized care for their little ones.
                 </motion.p>
                   <motion.p variants={fadeInUp}>
                Dr. Goyal’s academic journey is both inspiring and commendable. He earned his <strong> MBBS degree from Bharati Vidyapeeth University, Pune,</strong> and went on to complete his <strong>MD in Pediatrics from NIMS University, Jaipur.</strong> To further refine his expertise, he pursued a ,<strong>Fellowship in Neonatology from Neo Clinic Children’s Hospital, Jaipur,</strong> achieving an impressive distinction by securing <strong> 2nd rank at the national level. </strong>His advanced training allows him to focus on the delicate care of newborns, particularly those who are premature, underweight, or in critical need of specialized neonatal management.
@@ -186,7 +186,7 @@ const DoctorProfileSection = () => {
                 
                 </motion.p>
 <motion.p variants={fadeInUp}>
-              Known for his compassionate approach and clinical excellence, Dr. Mayur Goyal brings together years of training, skill, and experience to provide comprehensive care for infants and children, with a special focus on <strong> advanced neonatal care and emergency management. </strong> His vision through Mayur Child Care Center is to offer the highest standard of pediatric healthcare to the community, ensuring that every child receives the attention and treatment they deserve.
+              Known for his compassionate approach and clinical excellence, Dr. Mayur Goyal brings together years of training, skill, and experience to provide comprehensive care for infants and children, with a special focus on <strong> advanced neonatal care and emergency management. </strong> His vision through Mayur Childern Hospital is to offer the highest standard of pediatric healthcare to the community, ensuring that every child receives the attention and treatment they deserve.
                 </motion.p>
 
                 {/* <motion.div variants={fadeInUp}>
@@ -478,7 +478,7 @@ export default DoctorProfileSection;
               
 //               <div className="space-y-4 text-lg md:text-xl text-gray-600">
 //                 <motion.p variants={fadeInUp}>
-//                   Dr. Mayur Kumar Goyal is an upcoming Pediatrician and one of the best child specialist (pediatrician) doctor in Ajmer and has been practicing since 2017. He practices at Mayur Child Care Center located near Lions Club, Vaishali Nagar, Ajmer.
+//                   Dr. Mayur Kumar Goyal is an upcoming Pediatrician and one of the best child specialist (pediatrician) doctor in Ajmer and has been practicing since 2017. He practices at Mayur Childern Hospital located near Lions Club, Vaishali Nagar, Ajmer.
 //                 </motion.p>
                 
 //                 <motion.p variants={fadeInUp}>
@@ -500,10 +500,10 @@ export default DoctorProfileSection;
 //                     className="text-xl font-semibold text-gray-800 mb-3"
 //                     variants={fadeInUp}
 //                   >
-//                     About Mayur Child Care Center
+//                     About Mayur Childern Hospital
 //                   </motion.h3>
 //                   <motion.p variants={fadeInUp}>
-//                     Mayur Child Care Center was established in 2018. The Care Center offers Immunization, Regular Check-ups, 24 hours admission facilities, day care, pharmacy and laboratory investigations Neonatal Care, Counselling and OPD Consultation for its patients. Mayur Child Care Center also offers online Personal appointment booking facility. Mayur Child Care Center offers 24 hours pediatric health care facilities.
+//                     Mayur Childern Hospital was established in 2018. The Care Center offers Immunization, Regular Check-ups, 24 hours admission facilities, day care, pharmacy and laboratory investigations Neonatal Care, Counselling and OPD Consultation for its patients. Mayur Childern Hospital also offers online Personal appointment booking facility. Mayur Childern Hospital offers 24 hours pediatric health care facilities.
 //                   </motion.p>
 //                 </motion.div>
                 

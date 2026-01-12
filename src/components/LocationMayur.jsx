@@ -76,7 +76,7 @@ export default function LocationMayur() {
               <span>Ajmer</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Mayur Child Care Center
+              Mayur Childern Hospital
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Providing comprehensive pediatric care with dedication and expertise

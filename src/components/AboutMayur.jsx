@@ -77,7 +77,7 @@ export default function AboutMayur() {
   TO <br />
   <span className="relative mx-2 inline-block">
     <span className="relative bg-purple-200 rounded-xl z-10 px-2 text-xl sm:text-2xl md:text-4xl lg:text-4xl xl:text-1xl">
-      MAYUR CHILD CARE CENTER
+      Mayur Childern Hospital
     </span>
     <br />
     <motion.span
@@ -103,7 +103,7 @@ export default function AboutMayur() {
         variants={itemVariants}
         className="text-gray-600 max-w-4xl mx-auto text-base md:text-lg leading-relaxed text-justify mb-6"
       >
-        Established in <b>2018</b>, <b>Mayur Child Care Center</b> has been proudly serving the children of <b>Ajmer</b> with <b>expert</b>, <b>compassionate healthcare</b>. Our hospital was created with one mission in mind: <b>to provide exceptional medical care for children from newborns to adolescents.</b>
+        Established in <b>2018</b>, <b>Mayur Childern Hospital</b> has been proudly serving the children of <b>Ajmer</b> with <b>expert</b>, <b>compassionate healthcare</b>. Our hospital was created with one mission in mind: <b>to provide exceptional medical care for children from newborns to adolescents.</b>
       </motion.p>
   
       <motion.p
@@ -117,7 +117,7 @@ export default function AboutMayur() {
         variants={itemVariants}
         className="text-gray-600 max-w-4xl mx-auto text-base md:text-lg leading-relaxed text-justify"
       >
-        Under the leadership of <b>Dr. Mayur Goyal (MBBS, MD Pediatrics, Fellow in Neonatal Medicine)</b>, a <b>renowned pediatrician</b> with <b>15+ years of experience</b>, our hospital has earned a <b>reputation for excellence</b> in pediatric care. His commitment to <b>advancing child healthcare</b>, combined with our <b>state-of-the-art facilities</b> and a <b>compassionate team</b>, makes <b>Mayur Child Care Center</b> the <b>trusted choice for families in Ajmer and beyond</b>.
+        Under the leadership of <b>Dr. Mayur Goyal (MBBS, MD Pediatrics, Fellow in Neonatal Medicine)</b>, a <b>renowned pediatrician</b> with <b>15+ years of experience</b>, our hospital has earned a <b>reputation for excellence</b> in pediatric care. His commitment to <b>advancing child healthcare</b>, combined with our <b>state-of-the-art facilities</b> and a <b>compassionate team</b>, makes <b>Mayur Childern Hospital</b> the <b>trusted choice for families in Ajmer and beyond</b>.
       </motion.p>
     </motion.div>
   </section>

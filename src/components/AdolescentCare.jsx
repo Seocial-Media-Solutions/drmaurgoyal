@@ -34,7 +34,7 @@ const AdolescentCare = () => {
         {/* Introduction */}
         <div className="prose prose-lg max-w-none mb-12">
           <p className="text-gray-800 mb-6 md:text-xl text-lg">
-            Adolescence marks a critical transition period filled with rapid physical changes, emotional development, and emerging independence. At Mayur Child Care Center, we provide specialized adolescent healthcare services that address the unique needs of teenagers while respecting their growing autonomy.
+            Adolescence marks a critical transition period filled with rapid physical changes, emotional development, and emerging independence. At Mayur Childern Hospital, we provide specialized adolescent healthcare services that address the unique needs of teenagers while respecting their growing autonomy.
           </p>
           
           <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg mb-6">

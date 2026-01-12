@@ -12,7 +12,7 @@ export const metadata = {
   metadataBase: new URL('https://drmayurkumargoyal.com'),
   title: {
     template: '%s',
-    default:'Mayur Child Care Center | Pediatrician in Ajmer'
+    default:'Mayur Childern Hospital | Pediatrician in Ajmer'
   },
   description: 'Best pediatrician in Ajmer, Rajasthan. Dr. Mayur Kumar Goyal specializes in child healthcare, newborn care, and vaccination services.',
   keywords: [
@@ -23,7 +23,7 @@ export const metadata = {
     'best pediatrician in Ajmer',
     'child doctor in Ajmer',
     'Dr. Mayur Kumar Goyal',
-    'Mayur Child Care Center',
+    'Mayur Childern Hospital',
     'Ajmer pediatric clinic',
   ],
 };

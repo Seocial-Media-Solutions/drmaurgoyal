@@ -38,7 +38,7 @@ const VaccinationPrograms = () => {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-green-800 mb-4">Why Get Vaccinated at Mayur Child Care Center?</h3>
+          <h3 className="text-xl font-semibold text-green-800 mb-4">Why Get Vaccinated at Mayur Childern Hospital?</h3>
           <ul className="space-y-2 text-gray-700">
             <li>✅ Certified vaccines stored under strict quality conditions</li>
             <li>✅ Expert vaccination counseling and reminders</li>

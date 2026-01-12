@@ -98,7 +98,7 @@ const AboutDoctor = () => {
             >
               <p>
                 Dr. Mayur Kumar Goyal is one of the best child specialists in Ajmer and has been practicing since 2017. 
-                He currently practices at Mayur Child Care Center located near Lions Club, Vaishali Nagar, Ajmer.
+                He currently practices at Mayur Childern Hospital located near Lions Club, Vaishali Nagar, Ajmer.
               </p>
               
               <p>
