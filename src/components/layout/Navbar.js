@@ -410,7 +410,7 @@ const Navbar = () => {
                 Contact Us
               </Link>
               <Link 
-                href="https://drmayur.academichub.in/OnlineAppointment.aspx" target='_blank'
+                href="/bookconsultation" target='_blank'
                 className="px-4 py-2 rounded-full text-white bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 flex items-center shadow-md hover:shadow-lg transition-all duration-200 text-sm"
               >
                 Book Consultation

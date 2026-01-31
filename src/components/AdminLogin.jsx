@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { db } from '@/firebase/firebaseConfig'; // Import Firestore instance
-import { 
-  collection, 
-  getDocs, 
-  query, 
+import {
+  collection,
+  getDocs,
+  query,
   orderBy,
   doc,
   updateDoc,
@@ -19,7 +19,7 @@ const AdminLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
-  
+
   // Booking data state
   const [bookings, setBookings] = useState([]);
   const [filteredBookings, setFilteredBookings] = useState([]);
@@ -32,10 +32,10 @@ const AdminLogin = () => {
   // Slider state
   const [bookingsScrollHeight, setBookingsScrollHeight] = useState(0);
   const [showBookingsSlider, setShowBookingsSlider] = useState(false);
-  
+
   // Refs for tables
   const bookingsTableRef = useRef(null);
-  
+
   // Admin credentials - in a real app, these would not be hardcoded
   const ADMIN_USERNAME = 'admin';
   const ADMIN_PASSWORD = '12345';
@@ -65,7 +65,7 @@ const AdminLogin = () => {
   // Handle login form submission
   const handleLogin = (e) => {
     e.preventDefault();
-    
+
     if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
       setIsAuthenticated(true);
       setLoginError('');
@@ -96,14 +96,14 @@ const AdminLogin = () => {
       fetchBookings();
     }
   }, [isAuthenticated]);
-  
+
   // Apply filters when filter values change
   useEffect(() => {
     if (bookings.length > 0) {
       applyBookingsFilters();
     }
   }, [bookings, filterDate, filterName]);
-  
+
   // Check if table needs vertical slider
   useEffect(() => {
     if (bookingsTableRef.current) {
@@ -117,25 +117,25 @@ const AdminLogin = () => {
   // Fetch bookings from Firestore
   const fetchBookings = async () => {
     if (!db) return;
-  
+
     setIsLoading(true);
-  
+
     try {
       // Use where clause to only get documents that have a date field
       const bookingsQuery = query(
         collection(db, "bookings")
       );
-  
+
       const querySnapshot = await getDocs(bookingsQuery);
       const bookingsData = [];
-  
+
       querySnapshot.forEach((doc) => {
         bookingsData.push({
           id: doc.id,
           ...doc.data(),
         });
       });
-  
+
       // Sort the data after fetching
       bookingsData.sort((a, b) => {
         // First by date (descending)
@@ -143,7 +143,7 @@ const AdminLogin = () => {
         // Then by timeSlot (ascending)
         return a.timeSlot.localeCompare(b.timeSlot);
       });
-  
+
       setBookings(bookingsData);
       setFilteredBookings(bookingsData);
     } catch (error) {
@@ -152,26 +152,26 @@ const AdminLogin = () => {
       setIsLoading(false);
     }
   };
-  
+
   // Apply filters to bookings
   const applyBookingsFilters = () => {
     let filtered = [...bookings];
-    
+
     // Apply date filter
     if (filterDate) {
       filtered = filtered.filter(booking => booking.date === filterDate);
     }
-    
+
     // Apply name filter
     if (filterName) {
       const searchTerm = filterName.toLowerCase();
-      filtered = filtered.filter(booking => 
-        booking.fullName?.toLowerCase().includes(searchTerm) || 
-        booking.email?.toLowerCase().includes(searchTerm) || 
+      filtered = filtered.filter(booking =>
+        booking.fullName?.toLowerCase().includes(searchTerm) ||
+        booking.email?.toLowerCase().includes(searchTerm) ||
         booking.phoneNumber?.includes(searchTerm)
       );
     }
-    
+
     setFilteredBookings(filtered);
   };
 
@@ -185,12 +185,12 @@ const AdminLogin = () => {
   const handleDateFilterChange = (e) => {
     setFilterDate(e.target.value);
   };
-  
+
   // Handle name filter change
   const handleNameFilterChange = (e) => {
     setFilterName(e.target.value);
   };
-  
+
   // Function to handle accepting a consultation
   const handleAcceptConsultation = async (booking) => {
     try {
@@ -205,18 +205,29 @@ const AdminLogin = () => {
 
       // Send confirmation email
       const templateParams = {
-        to_name: booking.fullName,
-        to_email: booking.email,
+        title: "Appointment Confirmed",
+        header_title: "Appointment Confirmed",
+        greeting: `Hello ${booking.fullName},`,
+        status: "ACCEPTED",
+        status_color: "#27ae60",
+        status_bg: "#e8f8f5",
+        patient_name: booking.fullName,
+        patient_phone: booking.phoneNumber,
+        patient_email: booking.email,
         date: formatDate(booking.date),
         time: formatTime(booking.timeSlot),
-        status: "accepted",
+        location: booking.location,
+        note: "Please arrive 15 minutes before your scheduled appointment time. Bring any previous medical records.",
+        email: booking.email,
+        name: booking.fullName,
+        phone: booking.phoneNumber
       };
 
       await emailjs.send(
-        "service_7epwnom", // Replace with your EmailJS service ID
-        "template_ea20cjc", // Replace with your EmailJS template ID
+        "service_ku69g1w", // Replace with your EmailJS service ID
+        "template_jkovjp6", // Replace with your EmailJS template ID
         templateParams,
-        "_6LHHFd3x8j6eCvUj" // Replace with your EmailJS user ID
+        "Zwd0KGJMF44D8dGTT" // Replace with your EmailJS user ID
       );
 
       // Refresh the bookings list
@@ -243,18 +254,29 @@ const AdminLogin = () => {
 
       // Send confirmation email
       const templateParams = {
-        to_name: booking.fullName,
-        to_email: booking.email,
+        title: "Appointment Declined",
+        header_title: "Appointment Update",
+        greeting: `Hello ${booking.fullName},`,
+        status: "DECLINED",
+        status_color: "#e74c3c",
+        status_bg: "#fdf2f2",
+        patient_name: booking.fullName,
+        patient_phone: booking.phoneNumber,
+        patient_email: booking.email,
         date: formatDate(booking.date),
         time: formatTime(booking.timeSlot),
-        status: "declined",
+        location: booking.location,
+        note: "We apologize, but we cannot accommodate this appointment at the requested time. Please contact us to reschedule.",
+        email: booking.email,
+        name: booking.fullName,
+        phone: booking.phoneNumber
       };
 
       await emailjs.send(
-        "service_7epwnom", // Replace with your EmailJS service ID
-        "template_ea20cjc", // Replace with your EmailJS template ID
+        "service_ku69g1w", // Replace with your EmailJS service ID
+        "template_jkovjp6", // Replace with your EmailJS template ID
         templateParams,
-        "_6LHHFd3x8j6eCvUj" // Replace with your EmailJS user ID
+        "Zwd0KGJMF44D8dGTT" // Replace with your EmailJS user ID
       );
 
       // Refresh the bookings list
@@ -272,10 +294,10 @@ const AdminLogin = () => {
     try {
       // Set loading state for this booking
       setLoadingBookings(prev => ({ ...prev, [bookingId]: 'deleting' }));
-      
+
       // Delete the document from Firestore
       await deleteDoc(doc(db, "bookings", bookingId));
-      
+
       // Refresh the bookings list
       fetchBookings();
     } catch (error) {
@@ -304,7 +326,7 @@ const AdminLogin = () => {
               </svg>
             </button>
           </div>
-          
+
           <div className="mb-6">
             <p className="text-gray-700 mb-2">Are you sure you want to delete this appointment?</p>
             <div className="bg-red-50 border-l-4 border-red-400 p-4">
@@ -324,7 +346,7 @@ const AdminLogin = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="flex justify-end space-x-3">
             <button
               onClick={onCancel}
@@ -365,13 +387,13 @@ const AdminLogin = () => {
               Please sign in to access booking details
             </p>
           </div>
-          
+
           {loginError && (
             <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md relative">
               <strong>Error:</strong> {loginError}
             </div>
           )}
-          
+
           <form className="mt-8 space-y-6" onSubmit={handleLogin}>
             <div className="rounded-md -space-y-px">
               <div className="mb-4">
@@ -432,7 +454,7 @@ const AdminLogin = () => {
             Logout
           </button>
         </div>
-        
+
         {/* Filters */}
         <div className="bg-white p-6 rounded-xl shadow-md mb-8">
           <h2 className="text-xl font-bold text-teal-800 mb-4 flex items-center">
@@ -474,7 +496,7 @@ const AdminLogin = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Bookings table */}
         <div className="bg-white rounded-xl shadow-md overflow-hidden mb-8">
           <div className="p-6 border-b border-gray-200">
@@ -510,8 +532,8 @@ const AdminLogin = () => {
             </div>
           ) : (
             <div className="relative">
-              <div 
-                className="overflow-y-auto max-h-96 scrollbar-track-transparent scrollbar-thumb-blue-500 scrollbar-thin" 
+              <div
+                className="overflow-y-auto max-h-96 scrollbar-track-transparent scrollbar-thumb-blue-500 scrollbar-thin"
                 style={{ maxHeight: '400px' }}
                 ref={bookingsTableRef}
               >
@@ -537,11 +559,10 @@ const AdminLogin = () => {
                           <div className="text-sm text-gray-500">{booking.email}</div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                            booking.consultationType === 'clinic' 
-                              ? 'bg-green-100 text-green-800' 
-                              : 'bg-blue-100 text-blue-800'
-                          }`}>
+                          <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${booking.consultationType === 'clinic'
+                            ? 'bg-green-100 text-green-800'
+                            : 'bg-blue-100 text-blue-800'
+                            }`}>
                             {booking.consultationType === 'clinic' ? 'Clinic' : 'Hospital'}
                           </span>
                         </td>
@@ -550,48 +571,47 @@ const AdminLogin = () => {
                           <div className="text-sm text-gray-500">{formatTime(booking.timeSlot)}</div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                            booking.status === 'accepted' 
-                              ? 'bg-green-100 text-green-800' 
-                              : booking.status === 'declined' 
-                              ? 'bg-red-100 text-red-800' 
+                          <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${booking.status === 'accepted'
+                            ? 'bg-green-100 text-green-800'
+                            : booking.status === 'declined'
+                              ? 'bg-red-100 text-red-800'
                               : 'bg-gray-100 text-gray-800'
-                          }`}>
+                            }`}>
                             {booking.status || 'Pending'}
                           </span>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        <div className="flex items-center space-x-2">
-          <button
-            onClick={() => handleAcceptConsultation(booking)}
-            disabled={loadingBookings[booking.id]}
-            className={`${loadingBookings[booking.id] === 'accepting' ? 'opacity-50 cursor-not-allowed' : ''} bg-green-500 hover:bg-green-600 text-white py-1 px-3 rounded-md text-sm font-medium`}
-          >
-            {loadingBookings[booking.id] === 'accepting' ? (
-              <div className="inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-            ) : 'Accept'}
-          </button>
-          <button
-            onClick={() => handleDeclineConsultation(booking)}
-            disabled={loadingBookings[booking.id]}
-            className={`${loadingBookings[booking.id] === 'declining' ? 'opacity-50 cursor-not-allowed' : ''} bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md text-sm font-medium`}
-          >
-            {loadingBookings[booking.id] === 'declining' ? (
-              <div className="inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-            ) : 'Decline'}
-          </button>
-          <button
-            onClick={() => setDeleteConfirmation(booking)}
-            disabled={loadingBookings[booking.id]}
-            className="text-gray-500 hover:text-red-600 p-1 transition-colors duration-200"
-            title="Delete Appointment"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </div>
-      </td>
+                          <div className="flex items-center space-x-2">
+                            <button
+                              onClick={() => handleAcceptConsultation(booking)}
+                              disabled={loadingBookings[booking.id]}
+                              className={`${loadingBookings[booking.id] === 'accepting' ? 'opacity-50 cursor-not-allowed' : ''} bg-green-500 hover:bg-green-600 text-white py-1 px-3 rounded-md text-sm font-medium`}
+                            >
+                              {loadingBookings[booking.id] === 'accepting' ? (
+                                <div className="inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                              ) : 'Accept'}
+                            </button>
+                            <button
+                              onClick={() => handleDeclineConsultation(booking)}
+                              disabled={loadingBookings[booking.id]}
+                              className={`${loadingBookings[booking.id] === 'declining' ? 'opacity-50 cursor-not-allowed' : ''} bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md text-sm font-medium`}
+                            >
+                              {loadingBookings[booking.id] === 'declining' ? (
+                                <div className="inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                              ) : 'Decline'}
+                            </button>
+                            <button
+                              onClick={() => setDeleteConfirmation(booking)}
+                              disabled={loadingBookings[booking.id]}
+                              className="text-gray-500 hover:text-red-600 p-1 transition-colors duration-200"
+                              title="Delete Appointment"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                              </svg>
+                            </button>
+                          </div>
+                        </td>
                       </tr>
                     ))}
                   </tbody>

@@ -1,0 +1,73 @@
+<div style="margin:0;padding:0;background-color:#f4f6f8;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td align="center" style="padding:20px 0;">
+        <table width="100%" style="max-width:560px;background:#ffffff;border-radius:10px;overflow:hidden;">
+
+      <!-- Header -->
+      <tr>
+        <td align="center" style="background:#1976d2;padding:22px;">
+          <h2 style="margin:0;color:#ffffff;font-weight:600;">
+            {{title}}
+          </h2>
+          <p style="margin:6px 0 0;color:#e3f2fd;font-size:13px;">
+            Action Required
+          </p>
+        </td>
+      </tr>
+
+      <!-- Body -->
+      <tr>
+        <td style="padding:24px;color:#2c3e50;font-size:14px;">
+          <p style="margin:0 0 14px;">
+            A new appointment has been booked. Please review the details below:
+          </p>
+
+          <!-- Patient Info -->
+          <div style="background:#f5f7fa;padding:16px;border-radius:8px;margin-bottom:16px;">
+            <h4 style="margin:0 0 10px;font-size:14px;color:#000;">
+              Patient Details
+            </h4>
+            <p style="margin:4px 0;"><strong>Name:</strong> {{name}}</p>
+            <p style="margin:4px 0;"><strong>Phone:</strong> {{phone}}</p>
+            <p style="margin:4px 0;"><strong>Email:</strong> {{email}}</p>
+          </div>
+
+          <!-- Appointment Info -->
+          <div style="background:#f5f7fa;padding:16px;border-radius:8px;margin-bottom:16px;">
+            <h4 style="margin:0 0 10px;font-size:14px;color:#000;">
+              Appointment Details
+            </h4>
+            <p style="margin:4px 0;"><strong>Date:</strong> {{date}}</p>
+            <p style="margin:4px 0;"><strong>Time:</strong> {{time}}</p>
+            <p style="margin:4px 0;"><strong>Location:</strong> {{location}}</p>
+          </div>
+
+          <!-- Status -->
+          <div style="background:#fff8e1;border-left:4px solid #fbc02d;padding:12px;border-radius:6px;font-size:13px;">
+            <strong>Status:</strong>
+            <span style="font-weight:600;">Pending Approval</span>
+          </div>
+
+          <p style="margin-top:18px;font-size:13px;">
+            Please log in to the admin dashboard to <strong>Accept</strong> or <strong>Decline</strong> this appointment.
+          </p>
+        </td>
+      </tr>
+
+      <!-- Footer -->
+      <tr>
+        <td align="center" style="background:#f7f7f7;padding:16px;font-size:12px;color:#666;">
+          <p style="margin:0;">
+            Mayur Children Hospital<br />
+            Admin Notification System
+          </p>
+        </td>
+      </tr>
+
+    </table>
+  </td>
+</tr>
+
+  </table>
+</div>
