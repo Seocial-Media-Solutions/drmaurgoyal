@@ -116,7 +116,7 @@ const CarePartnerComponent = () => {
           animate={buttonInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
         >
-          <Link href="https://drmayur.academichub.in/OnlineAppointment.aspx" target='_blank'>
+          <Link href="/bookconsultation" target='_blank'>
             <motion.button
               className="px-12 py-4 rounded-full bg-white cursor-pointer text-gray-900 border border-gray-200 font-medium text-base hover:shadow-md transition-shadow"
               variants={buttonVariants}

@@ -266,7 +266,7 @@ const DoctorProfileSection = () => {
                       <span className="font-medium">Location:</span>
                     </div>
                     <a
-  href="https://maps.app.goo.gl/UHxPkSetKZ2od93X7"
+  href="https://maps.app.goo.gl/NDoXWWTbCo3GKpsF6"
   target="_blank"
   rel="noopener noreferrer"
   className="block text-gray-700 hover:text-blue-600 hover:underline  "

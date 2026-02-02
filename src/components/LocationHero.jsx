@@ -7,21 +7,21 @@ const LocationHero = () => {
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         staggerChildren: 0.2,
         delayChildren: 0.3,
       }
     }
   };
-  
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.6,
         ease: "easeOut"
       }
@@ -29,7 +29,7 @@ const LocationHero = () => {
   };
 
   const buttonVariants = {
-    hover: { 
+    hover: {
       scale: 1.05,
       boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
       transition: { duration: 0.3 }
@@ -39,10 +39,10 @@ const LocationHero = () => {
 
   const imageVariants = {
     hidden: { opacity: 0, scale: 1.05 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
-      transition: { 
+      transition: {
         duration: 0.8,
         ease: "easeOut"
       }
@@ -53,33 +53,41 @@ const LocationHero = () => {
     <section className="w-full mt-1 bg-white overflow-hidden">
       <div className="flex flex-col lg:flex-row">
         {/* Left Content with padding */}
-        <motion.div 
+        <motion.div
           className="w-full lg:w-1/2 px-8 md:px-16 lg:px-24 py-16 md:py-28 flex flex-col justify-center"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          <motion.h1 
+          <motion.h1
             className="uppercase text-gray-700 text-xl font-bold tracking-wider mb-4"
             variants={itemVariants}
           >
-          Mayur Childern Hospital Location
+            Mayur Childern Hospital Location
           </motion.h1>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
             variants={itemVariants}
           >
-           Visit us in person
+            Visit us in person
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-gray-600 mb-8 md:text-xl text-lg"
             variants={itemVariants}
           >
-           Mayur Childern Hospital is located in Ajmer and offers quality care for children. You can find us at B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer, Rajasthan, 305001.
+            Mayur Childern Hospital is located in Ajmer and offers quality care for children. You can find us at{' '}
+            <a
+              href="https://maps.app.goo.gl/NDoXWWTbCo3GKpsF6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-600 hover:underline font-semibold"
+            >
+              B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer, Rajasthan, 305001
+            </a>.
           </motion.p>
-          
+
           {/* <motion.div 
             className="flex flex-wrap gap-4"
             variants={itemVariants}
@@ -112,9 +120,9 @@ const LocationHero = () => {
             </motion.div>
           </motion.div> */}
         </motion.div>
-        
+
         {/* Right Image that touches the right edge */}
-        <motion.div 
+        <motion.div
           className="w-full lg:w-1/2 h-96 md:h-98 lg:h-auto"
           initial="hidden"
           animate="visible"
@@ -128,7 +136,7 @@ const LocationHero = () => {
               className="w-full h-full"
             >
               <Image
-                src="/images/mayurchildcarecenter.webp" 
+                src="/images/mayurchildcarecenter.webp"
                 alt="Therapist working with a child on developmental activities"
                 fill
                 className="object-cover"

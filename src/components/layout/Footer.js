@@ -12,66 +12,66 @@ const Footer = () => {
       <div className="absolute bottom-0 left-1/3 w-16 h-16 rounded-full bg-emerald-500/10 -translate-y-8"></div>
       <div className="absolute top-1/4 left-1/2 w-40 h-40 rounded-full bg-green-400/5"></div>
       <div className="absolute bottom-1/4 right-1/4 w-20 h-20 rounded-full bg-teal-400/5"></div>
-      
+
       <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
             <div className="mb-4 flex flex-col items-center lg:items-start">
               <Link href="/" className="inline-block mb-3">
-                <Image 
-                  src="/images/NewLogo.jpeg" 
-                  alt="Mayur Childern Hospital Logo" 
-                  width={140} 
+                <Image
+                  src="/images/NewLogo.jpeg"
+                  alt="Mayur Childern Hospital Logo"
+                  width={140}
                   height={50}
                   className="h-auto w-auto rounded-full"
                 />
               </Link>
-             
+
               <h2 className="text-lg lg:text-xl font-semibold bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent text-center lg:text-left">
                 Mayur Childern Hospital
               </h2>
             </div>
-             
+
             <div className="flex space-x-4 mb-6">
               {/* Social Media Icons */}
-              <a href="https://www.facebook.com/people/Mayur-Child-Care-Center/100089743385413/" target='_blank' className="hover:opacity-80 hover:scale-110 transition-all duration-300" aria-label="Facebook">
-                <Image 
-                  src="/images/social/facebook.png" 
-                  alt="Facebook" 
-                  width={36} 
+              <a href="https://www.facebook.com/profile.php?id=100089786466045" target='_blank' className="hover:opacity-80 hover:scale-110 transition-all duration-300" aria-label="Facebook">
+                <Image
+                  src="/images/social/facebook.png"
+                  alt="Facebook"
+                  width={36}
                   height={36}
                 />
               </a>
-              <a href="https://instagram.com/mayur_child_care_center" target='_blank' className="hover:opacity-80 hover:scale-110 transition-all duration-300" aria-label="Instagram">
-                <Image 
-                  src="/images/social/instagram.png" 
-                  alt="Instagram" 
-                  width={36} 
+              <a href="https://www.instagram.com/mayur_children_hospital/" target='_blank' className="hover:opacity-80 hover:scale-110 transition-all duration-300" aria-label="Instagram">
+                <Image
+                  src="/images/social/instagram.png"
+                  alt="Instagram"
+                  width={36}
                   height={36}
                 />
               </a>
-              <a href="https://x.com/mayurchildren" target='_blank' className="hover:opacity-80 hover:scale-110 transition-all duration-300" aria-label="Twitter/X">
-                <Image 
-                  src="/images/social/twitter.png" 
-                  alt="Twitter/X" 
-                  width={36} 
+              <a href="https://x.com/mayur_children_hospital/" target='_blank' className="hover:opacity-80 hover:scale-110 transition-all duration-300" aria-label="Twitter/X">
+                <Image
+                  src="/images/social/twitter.png"
+                  alt="Twitter/X"
+                  width={36}
                   height={36}
                 />
               </a>
-              <a href="https://www.youtube.com/@mayurchildcarecenter-official" target='_blank' className="hover:opacity-80 hover:scale-110 transition-all duration-300" aria-label="YouTube">
-                <Image 
-                  src="/images/social/youtube.png" 
-                  alt="YouTube" 
-                  width={36} 
+              <a href="https://www.youtube.com/@mayurchildrenhospital-official" target='_blank' className="hover:opacity-80 hover:scale-110 transition-all duration-300" aria-label="YouTube">
+                <Image
+                  src="/images/social/youtube.png"
+                  alt="YouTube"
+                  width={36}
                   height={36}
                 />
               </a>
-              <a href="https://www.linkedin.com/in/mayur-child-care-center-85a676275/" target='_blank' className="hover:opacity-80 hover:scale-110 transition-all duration-300" aria-label="Linkedin">
-                <Image 
-                  src="/images/social/linkedin.png" 
-                  alt="Linkedin" 
-                  width={36} 
+              <a href="https://www.linkedin.com/in/mayur-children-hospital-85a676275/" target='_blank' className="hover:opacity-80 hover:scale-110 transition-all duration-300" aria-label="Linkedin">
+                <Image
+                  src="/images/social/linkedin.png"
+                  alt="Linkedin"
+                  width={36}
                   height={36}
                 />
               </a>
@@ -116,7 +116,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="https://drmayur.academichub.in/OnlineAppointment.aspx" target='_blank' className="text-gray-300 hover:text-emerald-400 transition-colors duration-300 flex items-center group">
+                <Link href="/bookconsultation" target='_blank' className="text-gray-300 hover:text-emerald-400 transition-colors duration-300 flex items-center group">
                   <span className="mr-2 text-emerald-400 group-hover:scale-125 transition-transform duration-300">•</span> Book Consultation
                 </Link>
               </li>
@@ -132,16 +132,16 @@ const Footer = () => {
             <div className="space-y-4 text-gray-300">
               <div className="flex items-start">
                 <div className="rounded-full mr-3 shadow-md flex-shrink-0">
-                  <Image 
-                    src="/images/social/google-maps.png" 
-                    alt="google-maps" 
-                    width={32} 
+                  <Image
+                    src="/images/social/google-maps.png"
+                    alt="google-maps"
+                    width={32}
                     height={32}
                   />
                 </div>
                 <div>
                   <a
-                    href="https://maps.app.goo.gl/UHxPkSetKZ2od93X7"
+                    href="https://maps.app.goo.gl/NDoXWWTbCo3GKpsF6"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-white hover:text-blue-600 hover:underline text-sm"
@@ -153,10 +153,10 @@ const Footer = () => {
 
               <div className="flex items-start">
                 <div className="rounded-full flex items-center mr-3 shadow-md flex-shrink-0">
-                  <Image 
-                    src="/images/social/telephone.png" 
-                    alt="telephone" 
-                    width={32} 
+                  <Image
+                    src="/images/social/telephone.png"
+                    alt="telephone"
+                    width={32}
                     height={32}
                   />
                 </div>
@@ -178,10 +178,10 @@ const Footer = () => {
 
               <div className="flex items-center">
                 <div className="rounded-full mr-3 shadow-md flex-shrink-0">
-                  <Image 
-                    src="/images/social/google.png" 
-                    alt="Gmail" 
-                    width={32} 
+                  <Image
+                    src="/images/social/google.png"
+                    alt="Gmail"
+                    width={32}
                     height={32}
                   />
                 </div>
@@ -201,7 +201,7 @@ const Footer = () => {
               <span className="relative z-10 bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text text-transparent">Timings</span>
               <span className="absolute bottom-0 left-0 h-1 w-16 bg-gradient-to-r from-teal-400 to-emerald-500"></span>
             </h3>
-            
+
             <div className="space-y-4 w-full">
               {/* Mayur Childern Hospital Timings */}
               <div className="p-4 rounded-lg bg-[#1d2e2b] backdrop-blur-sm">
@@ -210,9 +210,14 @@ const Footer = () => {
                 </div>
                 <div className="text-gray-200 text-sm space-y-1">
                   <p><span className="text-gray-400">Mon - Sat:</span></p>
-                  <p className="ml-2">Morning: <span className="text-white">09:00 AM - 12:30 PM</span></p>
+                  <p className="ml-2">Morning: <span className="text-white">09:00 AM - 01:00 PM</span></p>
                   <p className="ml-2">Evening: <span className="text-white">05:00 PM - 08:30 PM</span></p>
-                  <p><span className="text-gray-400">Sunday:</span> <span className="text-white">10:00 AM - 02:00 PM</span></p>
+                  <p><span className="text-gray-400">Sunday:</span> <span className="text-white">10:00 AM - 02:00 PM</span> (Evening Off)</p>
+                  <div className="mt-2 pt-2 border-t border-gray-600/50">
+                    <p className="text-amber-400 font-medium text-xs uppercase mb-1">Outreach Camp (Thanwala)</p>
+                    <p className="text-xs text-gray-300">Every Wednesday: <span className="text-white">01:00 PM - 03:00 PM</span></p>
+                    <p className="text-[10px] text-gray-400">At Patiwal Dental Hospital</p>
+                  </div>
                 </div>
               </div>
 

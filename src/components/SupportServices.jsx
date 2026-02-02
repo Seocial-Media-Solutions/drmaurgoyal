@@ -83,15 +83,6 @@ const SupportServices = () => {
                 Level III NICU for premature infants and PICU with advanced life support for critically ill children.
               </p>
             </div>
-
-            {/* Operation Theaters */}
-            <div className="bg-white p-4 rounded-lg border border-blue-100 shadow-sm">
-              <h3 className="font-semibold text-blue-800 mb-2">• Operation Theaters</h3>
-              <p className="text-gray-700 text-sm">
-                Dedicated pediatric surgical suites with anesthesia expertise for children.
-              </p>
-            </div>
-
             {/* Radiology */}
             <div className="bg-white p-4 rounded-lg border border-blue-100 shadow-sm">
               <h3 className="font-semibold text-blue-800 mb-2">• Radiology and Imaging</h3>

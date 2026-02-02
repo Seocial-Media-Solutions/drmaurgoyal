@@ -61,30 +61,30 @@ const PediatricServices = () => {
         transition={{ duration: 1.5, delay: 0.5 }}
         className="absolute inset-0 z-0 pointer-events-none"
       >
-        
+
       </motion.div>
 
       <div className="flex flex-col lg:flex-row relative z-10">
         {/* Left Content with padding */}
-        <motion.div 
+        <motion.div
           className="w-full lg:w-1/2 px-8 md:px-16 lg:px-24 py-16 flex flex-col justify-center"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          <motion.h2 
+          <motion.h2
             className="uppercase text-gray-700 text-xl font-bold tracking-wider mb-4"
             variants={itemVariants}
           >
             SERVICES
           </motion.h2>
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
             variants={itemVariants}
           >
             Exceptional therapeutic services for exceptional children
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-gray-600 mb-8 md:text-xl text-lg"
             variants={itemVariants}
           >
@@ -103,7 +103,7 @@ const PediatricServices = () => {
               whileTap="tap"
             >
               <Link 
-                href="https://drmayur.academichub.in/OnlineAppointment.aspx" target='_blank'
+                href="/bookconsultation" target='_blank'
                 className="inline-block px-8 py-3 bg-gray-800 text-white font-medium rounded-full hover:bg-gray-700 transition-colors"
               >
                 Book Consultation
@@ -123,9 +123,9 @@ const PediatricServices = () => {
             </motion.div>
           </motion.div> */}
         </motion.div>
-        
+
         {/* Right Image that touches the right edge */}
-        <motion.div 
+        <motion.div
           className="w-full lg:w-1/2 h-96 lg:h-auto"
           initial="hidden"
           animate="visible"
@@ -133,7 +133,7 @@ const PediatricServices = () => {
         >
           <div className="relative w-full h-full">
             <Image
-              src="/images/services/Poster.webp" 
+              src="/images/services/Poster.webp"
               alt="Therapist working with a child on developmental activities"
               fill
               className="object-cover rounded-l"

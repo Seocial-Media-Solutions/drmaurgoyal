@@ -9,7 +9,7 @@ const GalleryPage = () => {
   // State for lightbox
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
+
   // Sample gallery images - replace with your actual images
   const galleryImages = [
     {
@@ -107,14 +107,14 @@ const GalleryPage = () => {
 
   // Navigate to previous image
   const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
     );
   };
 
   // Navigate to next image
   const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
     );
   };
@@ -123,8 +123,8 @@ const GalleryPage = () => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!lightboxOpen) return;
-      
-      switch(e.key) {
+
+      switch (e.key) {
         case 'Escape':
           closeLightbox();
           break;
@@ -140,7 +140,7 @@ const GalleryPage = () => {
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
@@ -151,7 +151,7 @@ const GalleryPage = () => {
       <section className="py-16 px-4 md:px-8 bg-gradient-to-b from-[#fcf9ff] to-white min-h-screen">
         <div className="max-w-7xl mx-auto">
           {/* Header with animation */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -213,7 +213,14 @@ const GalleryPage = () => {
             <div className="flex flex-col md:flex-row justify-center items-center gap-8">
               <div className="flex items-center gap-3 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-xl">
                 <span className="text-2xl">📍</span>
-                <span>B-15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer</span>
+                <a
+                  href="https://maps.app.goo.gl/NDoXWWTbCo3GKpsF6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline hover:text-teal-100"
+                >
+                  B-15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer
+                </a>
               </div>
               <div className="flex items-center gap-3 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-xl">
                 <span className="text-2xl">📞</span>
@@ -241,7 +248,7 @@ const GalleryPage = () => {
             >
               <X size={32} />
             </button>
-            
+
             {/* Navigation buttons */}
             <button
               onClick={prevImage}
@@ -250,7 +257,7 @@ const GalleryPage = () => {
             >
               <ChevronLeft size={40} />
             </button>
-            
+
             <button
               onClick={nextImage}
               className="absolute right-0 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-4 bg-black/30 hover:bg-black/50 rounded-l-lg transition-all duration-200 md:-right-16"
@@ -258,9 +265,9 @@ const GalleryPage = () => {
             >
               <ChevronRight size={40} />
             </button>
-            
+
             {/* Image container */}
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -274,14 +281,14 @@ const GalleryPage = () => {
                 className="rounded-lg"
               />
             </motion.div>
-            </div>
-            
-            {/* Caption */}
-            <div className="text-center text-white mt-4 p-2">
-              <p className="text-sm text-gray-300">{`Image ${currentImageIndex + 1} of ${galleryImages.length}`}</p>
-            </div>
+          </div>
+
+          {/* Caption */}
+          <div className="text-center text-white mt-4 p-2">
+            <p className="text-sm text-gray-300">{`Image ${currentImageIndex + 1} of ${galleryImages.length}`}</p>
+          </div>
         </motion.div>
-      
+
       )}
     </>
   );

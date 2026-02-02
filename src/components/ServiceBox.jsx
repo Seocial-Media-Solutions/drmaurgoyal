@@ -149,42 +149,42 @@ const ServiceBox = ({ service, bgColor }) => {
 
 const ServiceBoxes = () => {
   const services = [
-    {
-      title: "General Pediatrics OPD",
-      description: "Caring for Your Child's Health, Every Step of the Way",
-      href: "/services/general-pediatrics-opd",
-      icon: (
-        <>
-          <path d="M24 12V36" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-          <path d="M36 24H12" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-          <path d="M30 18L18 30" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-          <path d="M30 30L18 18" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-        </>
-      ),
-      imgurl:"images/services/General-Pediatrics-OPD.webp",
-      contentType: 'sections',
-      sections: [
-        {
-          question: "Expert Pediatric Care",
-          answer: "At Mayur Childern Hospital, our General Pediatrics OPD is your first stop for expert, compassionate care for children from birth to 18 years. Led by our Medical Director, Dr. Mayur Goyal (MD, Pediatrics, Fellow Neonatology (IAP)), and his team are committed to keeping your child healthy, happy, and thriving."
-        },
-        {
-          question: "Comprehensive Services",
-          answer: "Whether it's a routine check-up, a minor illness, or developmental concerns, our OPD provides comprehensive evaluation, diagnosis, and treatment — all in a child-friendly environment where your little one feels safe and cared for."
-        },
-        {
-          question: "We Offer",
-          answer: [
-            "Treatment for common childhood illnesses like fever, cough, cold, diarrhea, and infections",
-            "Growth and development monitoring",
-            "Nutrition and feeding advice",
-            "Vaccination guidance and immunization",
-            "Management of allergies, asthma, and chronic conditions",
-            "Parental counselling and health education"
-          ]
-        }
-      ]
-    },
+    // {
+    //   title: "General Pediatrics OPD",
+    //   description: "Caring for Your Child's Health, Every Step of the Way",
+    //   href: "/services/general-pediatrics-opd",
+    //   icon: (
+    //     <>
+    //       <path d="M24 12V36" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+    //       <path d="M36 24H12" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+    //       <path d="M30 18L18 30" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+    //       <path d="M30 30L18 18" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+    //     </>
+    //   ),
+    //   imgurl:"images/services/General-Pediatrics-OPD.webp",
+    //   contentType: 'sections',
+    //   sections: [
+    //     {
+    //       question: "Expert Pediatric Care",
+    //       answer: "At Mayur Childern Hospital, our General Pediatrics OPD is your first stop for expert, compassionate care for children from birth to 18 years. Led by our Medical Director, Dr. Mayur Goyal (MD, Pediatrics, Fellow Neonatology (IAP)), and his team are committed to keeping your child healthy, happy, and thriving."
+    //     },
+    //     {
+    //       question: "Comprehensive Services",
+    //       answer: "Whether it's a routine check-up, a minor illness, or developmental concerns, our OPD provides comprehensive evaluation, diagnosis, and treatment — all in a child-friendly environment where your little one feels safe and cared for."
+    //     },
+    //     {
+    //       question: "We Offer",
+    //       answer: [
+    //         "Treatment for common childhood illnesses like fever, cough, cold, diarrhea, and infections",
+    //         "Growth and development monitoring",
+    //         "Nutrition and feeding advice",
+    //         "Vaccination guidance and immunization",
+    //         "Management of allergies, asthma, and chronic conditions",
+    //         "Parental counselling and health education"
+    //       ]
+    //     }
+    //   ]
+    // },
     {
       title: "24x7 Pediatric Emergency Services",
       description: "Quick, Expert & Compassionate Care When It Matters Most",
@@ -478,20 +478,16 @@ const ServiceBoxes = () => {
             description: "Level III NICU for premature infants and PICU with advanced life support for critically ill children.",
             imagePath: "/images/services/nicu-picu.webp"
           },
-          {
-            name: "Operation Theaters",
-            description: "Dedicated pediatric surgical suites with anesthesia expertise for children.",
-            imagePath: "/images/services/operation-theater.jpeg"
-          },
+         
           {
             name: "Radiology and Imaging",
-            description: "Child-friendly X-ray, ultrasound, CT, and MRI with pediatric protocols and radiation protection.",
+            description: "Child-friendly X-ray, pediatric protocols and radiation protection.",
             imagePath: "/images/services/radiology.jpeg"
           },
           {
             name: "Pathology and Laboratory",
             description: "Rapid blood tests, cultures, and specialized pediatric lab investigations.",
-            imagePath: "/images/slide9.webp"
+            imagePath: "/images/services/laboratory-workbench.jpeg"
           },
           {
             name: "In-house Pharmacy",

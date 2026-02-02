@@ -40,7 +40,7 @@ const AboutDoctor = () => {
     <div className="w-full bg-[#f9fafb] py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading Section with Animation */}
-        <motion.div 
+        <motion.div
           ref={headingRef}
           initial={{ opacity: 0, y: 20 }}
           animate={headingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ const AboutDoctor = () => {
         </motion.div>
 
         {/* Doctor Profile Section */}
-        <motion.div 
+        <motion.div
           ref={profileRef}
           initial={{ opacity: 0 }}
           animate={profileInView ? { opacity: 1 } : { opacity: 0 }}
@@ -62,7 +62,7 @@ const AboutDoctor = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16"
         >
           {/* Doctor Image */}
-          <motion.div 
+          <motion.div
             ref={imageRef}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
@@ -70,16 +70,16 @@ const AboutDoctor = () => {
             whileHover={{ scale: 1.02 }}
             className="rounded-lg overflow-hidden shadow-xl"
           >
-            <img 
-              src="images/doctor.png" 
-              alt="Dr. Mayur Kumar Goyal" 
+            <img
+              src="images/doctor.png"
+              alt="Dr. Mayur Kumar Goyal"
               className="w-full h-full object-cover"
             />
           </motion.div>
 
           {/* Doctor Info */}
           <div className="space-y-6">
-            <motion.div 
+            <motion.div
               ref={titleRef}
               initial={{ opacity: 0, x: 20 }}
               animate={titleInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
@@ -89,7 +89,7 @@ const AboutDoctor = () => {
               <h1 className="text-xl font-semibold text-cyan-500 mt-1">Pediatrician & Neonatologist</h1>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               ref={bioRef}
               initial={{ opacity: 0, x: 20 }}
               animate={bioInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
@@ -97,26 +97,26 @@ const AboutDoctor = () => {
               className="text-gray-700 md:text-xl text-lg space-y-4"
             >
               <p>
-                Dr. Mayur Kumar Goyal is one of the best child specialists in Ajmer and has been practicing since 2017. 
+                Dr. Mayur Kumar Goyal is one of the best child specialists in Ajmer and has been practicing since 2017.
                 He currently practices at Mayur Childern Hospital located near Lions Club, Vaishali Nagar, Ajmer.
               </p>
-              
+
               <p>
-                With his MBBS from BVP Pune (2012), MD in Pediatrics from NIMS Jaipur (2016), 
-                and Fellowship in Neonatology from Neo Clinic Children Hospital Jaipur (2018) 
-                where he ranked 2nd pan India, Dr. Mayur specializes in care and treatment of newborns, 
+                With his MBBS from BVP Pune (2012), MD in Pediatrics from NIMS Jaipur (2016),
+                and Fellowship in Neonatology from Neo Clinic Children Hospital Jaipur (2018)
+                where he ranked 2nd pan India, Dr. Mayur specializes in care and treatment of newborns,
                 primarily those who are premature, underweight or otherwise in need of acute care.
               </p>
-              
+
               <p>
-                His professional experience includes working at prestigious institutions like JLN Medical College-Ajmer, 
-                Neo Clinic Children Hospital, Fortis Hospital and Santokba Durlabhji Memorial Hospital. 
-                As a member of IAP, IAP NEOCHAP, PGHTN and IMA communities, he brings extensive 
+                His professional experience includes working at prestigious institutions like JLN Medical College-Ajmer,
+                Neo Clinic Children Hospital, Fortis Hospital and Santokba Durlabhji Memorial Hospital.
+                As a member of IAP, IAP NEOCHAP, PGHTN and IMA communities, he brings extensive
                 experience in advanced Neonatal care and management of Neonatal emergencies.
               </p>
             </motion.div>
 
-            {/* <Link href="https://drmayur.academichub.in/OnlineAppointment.aspx" target='_blank'>
+            {/* <Link href="/bookconsultation" target='_blank'>
               <motion.div
                 ref={buttonRef}
                 initial={{ opacity: 0, y: 20 }}

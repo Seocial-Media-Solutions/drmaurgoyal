@@ -34,56 +34,56 @@ const BookingSystem = () => {
   // Hospital hours for Dr. Mayur Kumar Goyal
   const consultationHours = {
     0: { // Sunday
-      start: '11:00',
-      end: '13:00',
+      start: '10:00',
+      end: '14:00',
       isClosed: false,
       location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     1: { // Monday
       start1: '09:00',
-      end1: '10:00',
+      end1: '13:00',
       start2: '17:00',
-      end2: '20:00',
+      end2: '20:30',
       isClosed: false,
       location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     2: { // Tuesday
       start1: '09:00',
-      end1: '10:00',
+      end1: '13:00',
       start2: '17:00',
-      end2: '20:00',
+      end2: '20:30',
       isClosed: false,
       location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     3: { // Wednesday
-      start1: '09:00',
-      end1: '10:00',
+      start1: '13:00',
+      end1: '15:00',
       start2: '17:00',
-      end2: '20:00',
+      end2: '20:30',
       isClosed: false,
       location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     4: { // Thursday
       start1: '09:00',
-      end1: '10:00',
+      end1: '13:00',
       start2: '17:00',
-      end2: '20:00',
+      end2: '20:30',
       isClosed: false,
       location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     5: { // Friday
       start1: '09:00',
-      end1: '10:00',
+      end1: '13:00',
       start2: '17:00',
-      end2: '20:00',
+      end2: '20:30',
       isClosed: false,
       location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     },
     6: { // Saturday
       start1: '09:00',
-      end1: '10:00',
+      end1: '13:00',
       start2: '17:00',
-      end2: '20:00',
+      end2: '20:30',
       isClosed: false,
       location: "Mayur Childern Hospital, B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer"
     }
@@ -171,10 +171,19 @@ const BookingSystem = () => {
     return minDate.toISOString().split('T')[0];
   };
 
-  const getConsultationLocation = () => {
+  const getConsultationLocation = (slot) => {
     if (!selectedDate) return '';
     const date = new Date(selectedDate);
     const dayOfWeek = date.getDay();
+
+    // Check for Wednesday Outreach Camp
+    if (dayOfWeek === 3 && slot) {
+      const hour = parseInt(slot.split(':')[0]);
+      if (hour >= 13 && hour < 15) {
+        return "Patiwal Dental hospital, Near Post Office, Thanwala";
+      }
+    }
+
     return consultationHours[dayOfWeek].location;
   };
 
@@ -259,7 +268,7 @@ const BookingSystem = () => {
         fullName,
         phoneNumber,
         email,
-        location: getConsultationLocation(),
+        location: getConsultationLocation(selectedSlot),
         createdAt: new Date().toISOString(),
         status: "pending"
       });
@@ -280,7 +289,7 @@ const BookingSystem = () => {
           day: 'numeric'
         }),
         time: formatTime(selectedSlot),
-        location: getConsultationLocation()
+        location: getConsultationLocation(selectedSlot)
       };
 
       await emailjs.send(
@@ -400,7 +409,7 @@ const BookingSystem = () => {
                 <span className="font-bold">{new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span> at{' '}
                 <span className="font-bold">{formatTime(selectedSlot)}</span>
               </p>
-              <p className="text-sm mt-1">{getConsultationLocation()}</p>
+              <p className="text-sm mt-1">{getConsultationLocation(selectedSlot)}</p>
             </div>
 
             <div>
@@ -475,6 +484,14 @@ const BookingSystem = () => {
         <div className="p-4 bg-gradient-to-r from-blue-100 to-teal-100 bg-opacity-20 rounded-md text-teal-800">
           <h3 className="font-bold text-lg mb-2 text-teal-800">Mayur Childern Hospital</h3>
           <p className="mb-1">B 15, Aravali Vihar, Near Lions Club, Vaishali Nagar, Ajmer</p>
+          <a
+            href="https://maps.app.goo.gl/NDoXWWTbCo3GKpsF6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-teal-600 hover:text-teal-800 underline mb-1 block"
+          >
+            View on Map
+          </a>
           <p className="mb-1">Phone: 8955966990</p>
         </div>
       </form>
