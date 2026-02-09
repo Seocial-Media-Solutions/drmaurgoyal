@@ -3,14 +3,21 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X, ChevronRight } from 'lucide-react';
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const navbarRef = useRef(null);
+
+  // Hide navbar on admin routes
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -136,36 +143,36 @@ const Navbar = () => {
       title: "Services",
       href: "/services",
       dropdownItems: [
-        { 
-          title: "General Pediatrics OPD", 
+        {
+          title: "General Pediatrics OPD",
           href: "/services/general-pediatrics-opd",
         },
-        { 
-          title: "Pediatric Emergency Services", 
+        {
+          title: "Pediatric Emergency Services",
           href: "/services/pediatrics-emergency-services",
         },
-        { 
-          title: "Pediatric Critical Care", 
+        {
+          title: "Pediatric Critical Care",
           href: "/services/pediatric-critical-care",
         },
-        { 
-          title: "Neonatology Services", 
+        {
+          title: "Neonatology Services",
           href: "/services/neonatology-services",
         },
         {
-        title: "Newborn Screening", 
+          title: "Newborn Screening",
           href: "/services/newborn-screening",
         },
-        { 
-          title: "Vaccination Programs", 
+        {
+          title: "Vaccination Programs",
           href: "/services/vacination-programs",
         },
-        { 
-          title: "Adolescent Health Services", 
+        {
+          title: "Adolescent Health Services",
           href: "/services/adolescent-health-services",
         },
-        { 
-          title: "Support Services", 
+        {
+          title: "Support Services",
           href: "/services/support-services",
         },
       ]
@@ -184,17 +191,17 @@ const Navbar = () => {
       title: "Parents Corner",
       href: "/parents-corner",
       dropdownItems: [
-        { 
-          title: "Newborn Care", 
-          description: "Essential information for new parents", 
+        {
+          title: "Newborn Care",
+          description: "Essential information for new parents",
           href: "/newborn-care",
           hasSubmenu: true,
           submenuItems: newbornCareTopics
         },
-        { 
-          title: "Adolescent Care", 
-          description: "Guidance for teenage health and development", 
-          href: "/adolescent-care" 
+        {
+          title: "Adolescent Care",
+          description: "Guidance for teenage health and development",
+          href: "/adolescent-care"
         },
       ]
     },
@@ -207,13 +214,13 @@ const Navbar = () => {
   // Animation variants
   const dropdownVariants = {
     hidden: { opacity: 0, y: -10 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.2 }
     },
-    exit: { 
-      opacity: 0, 
+    exit: {
+      opacity: 0,
       y: -10,
       transition: { duration: 0.15 }
     }
@@ -221,26 +228,26 @@ const Navbar = () => {
 
   const submenuVariants = {
     hidden: { opacity: 0, x: -10 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
       transition: { duration: 0.2 }
     },
-    exit: { 
-      opacity: 0, 
+    exit: {
+      opacity: 0,
       x: -10,
       transition: { duration: 0.15 }
     }
   };
 
   const mobileMenuVariants = {
-    closed: { 
-      opacity: 0, 
+    closed: {
+      opacity: 0,
       height: 0,
       transition: { duration: 0.2 }
     },
-    open: { 
-      opacity: 1, 
+    open: {
+      opacity: 1,
       height: 'auto',
       transition: { duration: 0.2 }
     }
@@ -256,9 +263,9 @@ const Navbar = () => {
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center">
                 <div className="h-16 w-16   ml-[-20px] md:h-20 md:w-20 relative">
-                  <Image 
-                    src="/images/NewLogo.jpeg" 
-                    alt="Mayur Childern Hospital Logo" 
+                  <Image
+                    src="/images/NewLogo.jpeg"
+                    alt="Mayur Childern Hospital Logo"
                     width={100}
                     height={100}
                     priority
@@ -273,7 +280,7 @@ const Navbar = () => {
                 </div>
               </Link>
             </div>
-            
+
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center space-x-1">
               {menuItems.map((item, index) => (
@@ -284,7 +291,7 @@ const Navbar = () => {
                       className="flex items-center px-3 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 focus:outline-none hover:bg-blue-50 rounded-full"
                     >
                       {item.title}
-                      <ChevronDown 
+                      <ChevronDown
                         className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180 text-blue-600' : ''}`}
                       />
                     </button>
@@ -295,7 +302,7 @@ const Navbar = () => {
                     >
                       {item.title}
                       {item.dropdownItems && item.title === "Services" && (
-                        <ChevronDown 
+                        <ChevronDown
                           className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180 text-blue-600' : ''}`}
                           onClick={(e) => {
                             e.preventDefault();
@@ -320,7 +327,7 @@ const Navbar = () => {
                           {item.dropdownItems.map((dropdownItem, idx) => (
                             <div key={idx} className="relative">
                               {dropdownItem.hasSubmenu ? (
-                                <div 
+                                <div
                                   className="block px-4 py-3 hover:bg-blue-50 transition-colors relative"
                                   onMouseEnter={() => toggleSubmenu(idx)}
                                   onMouseLeave={() => toggleSubmenu(null)}
@@ -336,7 +343,7 @@ const Navbar = () => {
                                         <p className="mt-1 text-xs text-gray-500">{dropdownItem.description}</p>
                                       )}
                                     </Link>
-                                    <button 
+                                    <button
                                       onClick={(e) => {
                                         e.preventDefault();
                                         e.stopPropagation();
@@ -348,7 +355,7 @@ const Navbar = () => {
                                       <ChevronRight className="h-4 w-4 text-gray-400" />
                                     </button>
                                   </div>
-                                  
+
                                   {/* Submenu for Newborn Care */}
                                   <AnimatePresence>
                                     {activeSubmenu === idx && (
@@ -362,7 +369,7 @@ const Navbar = () => {
                                       >
                                         <div className="py-2">
                                           {dropdownItem.submenuItems.map((submenuItem, subIdx) => (
-                                            <Link 
+                                            <Link
                                               key={subIdx}
                                               href={submenuItem.slug}
                                               className="block text-black px-4 py-3 hover:bg-blue-50 transition-colors text-sm"
@@ -380,7 +387,7 @@ const Navbar = () => {
                                   </AnimatePresence>
                                 </div>
                               ) : (
-                                <Link 
+                                <Link
                                   href={dropdownItem.href}
                                   className="block px-4 py-3 hover:bg-blue-50 transition-colors"
                                   onClick={() => setActiveDropdown(null)}
@@ -400,16 +407,16 @@ const Navbar = () => {
                 </div>
               ))}
             </div>
-            
+
             {/* Action Buttons */}
             <div className="hidden md:flex items-center space-x-2">
-              <Link 
-                href="/locations" 
+              <Link
+                href="/locations"
                 className="px-4 py-2 rounded-full text-gray-700 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 text-sm"
               >
                 Contact Us
               </Link>
-              <Link 
+              <Link
                 href="/bookconsultation" target='_blank'
                 className="px-4 py-2 rounded-full text-white bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 flex items-center shadow-md hover:shadow-lg transition-all duration-200 text-sm"
               >
@@ -417,7 +424,7 @@ const Navbar = () => {
                 <ChevronRight className="h-4 w-4 ml-1" />
               </Link>
             </div>
-            
+
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center">
               <button
@@ -431,7 +438,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
@@ -451,8 +458,8 @@ const Navbar = () => {
                         className="w-full flex justify-between items-center px-3 py-3 text-gray-800 hover:bg-gray-50 rounded-md font-medium"
                       >
                         <span>{item.title}</span>
-                        <ChevronDown 
-                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180 text-blue-500' : ''}`} 
+                        <ChevronDown
+                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180 text-blue-500' : ''}`}
                         />
                       </button>
                     ) : (
@@ -464,19 +471,19 @@ const Navbar = () => {
                         {item.title}
                       </Link>
                     )}
-                    
+
                     {item.dropdownItems && item.title === "Services" && (
                       <button
                         onClick={() => toggleDropdown(index)}
                         className="w-full flex justify-between items-center px-6 py-2 text-gray-600 hover:bg-gray-50 rounded-md"
                       >
                         <span className="text-sm">View options</span>
-                        <ChevronDown 
-                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180 text-blue-500' : ''}`} 
+                        <ChevronDown
+                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180 text-blue-500' : ''}`}
                         />
                       </button>
                     )}
-                    
+
                     <AnimatePresence>
                       {activeDropdown === index && item.dropdownItems && (
                         <motion.div
@@ -507,11 +514,11 @@ const Navbar = () => {
                                         <p className="mt-1 text-xs text-gray-500">{dropdownItem.description}</p>
                                       )}
                                     </Link>
-                                    <ChevronDown 
-                                      className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeSubmenu === idx ? 'rotate-180 text-blue-500' : ''}`} 
+                                    <ChevronDown
+                                      className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeSubmenu === idx ? 'rotate-180 text-blue-500' : ''}`}
                                     />
                                   </button>
-                                  
+
                                   <AnimatePresence>
                                     {activeSubmenu === idx && (
                                       <motion.div
@@ -522,7 +529,7 @@ const Navbar = () => {
                                         className="pl-6 py-2 bg-gray-100 rounded-md mb-2"
                                       >
                                         {dropdownItem.submenuItems.map((submenuItem, subIdx) => (
-                                          <Link 
+                                          <Link
                                             key={subIdx}
                                             href={submenuItem.slug}
                                             className="block py-2 border-b border-gray-200 last:border-0 hover:bg-blue-50 px-3 rounded-md my-1 text-sm"
@@ -536,8 +543,8 @@ const Navbar = () => {
                                   </AnimatePresence>
                                 </div>
                               ) : (
-                                <Link 
-                                  key={idx} 
+                                <Link
+                                  key={idx}
                                   href={dropdownItem.href}
                                   className="block py-2 border-b border-gray-100 last:border-0 hover:bg-blue-50 px-3 rounded-md my-1"
                                   onClick={() => setIsOpen(false)}
@@ -555,7 +562,7 @@ const Navbar = () => {
                     </AnimatePresence>
                   </div>
                 ))}
-                
+
                 {/* Mobile action buttons */}
                 <div className="mt-3 flex flex-col space-y-2 px-2">
                   <Link

@@ -4,12 +4,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 // import { useEffect } from 'react';
 
+import { db } from '@/firebase/firebaseConfig';
+import { collection, getDocs } from 'firebase/firestore';
+
 // Function to read blogs data
-function getBlogs() {
+async function getBlogs() {
+  // Fetch local blogs
   const filePath = path.join(process.cwd(), 'public', 'blogs.json');
-  const fileData = fs.readFileSync(filePath, 'utf-8');
-  const blogs = JSON.parse(fileData);
-  return blogs;
+  let localBlogs = [];
+  try {
+    const fileData = fs.readFileSync(filePath, 'utf-8');
+    localBlogs = JSON.parse(fileData);
+  } catch (error) {
+    console.error("Error reading local blogs:", error);
+  }
+
+  // Fetch Firestore blogs
+  let firestoreBlogs = [];
+  try {
+    const querySnapshot = await getDocs(collection(db, "blogs"));
+    querySnapshot.forEach((doc) => {
+      firestoreBlogs.push({ id: doc.id, ...doc.data() });
+    });
+  } catch (error) {
+    console.error("Error fetching Firestore blogs:", error);
+  }
+
+  return [...localBlogs, ...firestoreBlogs];
 }
 
 // Generate metadata for each blog page
@@ -17,16 +38,16 @@ export async function generateMetadata({ params }) {
   // We need to await the params object first
   const resolvedParams = await params;
   const slug = resolvedParams.slug;
-  
-  const blogs = getBlogs();
+
+  const blogs = await getBlogs();
   const blog = blogs.find((blog) => blog.slug === slug);
-  
+
   if (!blog) {
     return {
       title: 'Blog Not Found',
     };
   }
-  
+
   return {
     title: `${blog.title}`,
     description: blog.metaDescription || blog.excerpt || blog.content.substring(0, 160),
@@ -45,10 +66,10 @@ export async function generateMetadata({ params }) {
         },
       ],
     },
-     alternates: {
+    alternates: {
       canonical: `https://www.drmayurkumargoyal.com/blog/${blog.slug}`,
     },
-    
+
     twitter: {
       card: 'summary_large_image',
       title: blog.title,
@@ -133,13 +154,13 @@ export default async function SingleBlogPage({ params }) {
   // We need to await the params object first
   const resolvedParams = await params;
   const slug = resolvedParams.slug;
-  
+
   // Get all blogs
-  const blogs = getBlogs();
-  
+  const blogs = await getBlogs();
+
   // Find the blog with the matching slug
   const blog = blogs.find((blog) => blog.slug === slug);
-  
+
   // If no blog is found, return a not found message
   if (!blog) {
     return (
@@ -148,7 +169,7 @@ export default async function SingleBlogPage({ params }) {
           <div className="bg-white rounded-xl shadow-lg overflow-hidden p-6 border border-blue-100">
             <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent mb-4">Blog Not Found</h1>
             <p className="text-gray-700 mb-4">Could not find blog with slug: {slug}</p>
-            <Link 
+            <Link
               href="/blog"
               className="inline-block bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition duration-300"
             >
@@ -171,8 +192,8 @@ export default async function SingleBlogPage({ params }) {
     <article className="min-h-screen bg-gradient-to-b from-blue-50 to-teal-50">
       {/* Hero section with image */}
       <div className="relative w-full h-80 md:h-136 max-w-8xl mx-auto ">
-        <Image 
-          src={blog.image || '/images/mayurchildcarecenter.webp'} 
+        <Image
+          src={blog.image || '/images/mayurchildcarecenter.webp'}
           alt={blog.alt || blog.title}
           fill
           priority
@@ -183,7 +204,7 @@ export default async function SingleBlogPage({ params }) {
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow-md">{blog.heading}</h1>
         </div>
       </div>
-      
+
       {/* Content section */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
         <div className="bg-white rounded-xl shadow-lg overflow-hidden p-6 md:p-10 border border-blue-100">
@@ -201,7 +222,7 @@ export default async function SingleBlogPage({ params }) {
               </div>
             </div>
           </div>
-          
+
           {/* Tags */}
           {blog.tags && (
             <div className="flex flex-wrap gap-2 mb-6">
@@ -212,13 +233,13 @@ export default async function SingleBlogPage({ params }) {
               ))}
             </div>
           )}
-          
+
           {/* Using our custom BlogContent component */}
           <BlogContent content={blog.content} />
-          
+
           {/* Back button */}
           <div className="mt-10 pt-6 border-t border-blue-100">
-            <Link 
+            <Link
               href="/blog"
               className="inline-block bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-3 rounded-lg hover:opacity-90 transition duration-300 shadow-md"
             >
@@ -232,9 +253,9 @@ export default async function SingleBlogPage({ params }) {
 }
 
 // Generate static paths for all blogs
-export async function generateStaticParams() {
-  const blogs = getBlogs();
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }));
-}
+// export async function generateStaticParams() {
+//   const blogs = await getBlogs();
+//   return blogs.map((blog) => ({
+//     slug: blog.slug,
+//   }));
+// }

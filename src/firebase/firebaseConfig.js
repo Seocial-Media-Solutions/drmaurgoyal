@@ -4,36 +4,41 @@ import { getAnalytics } from 'firebase/analytics';
 
 // Firebase configuration
 const firebaseConfig = {
-apiKey: "AIzaSyAHaYMT_jYnLqrPnKyUnI4ES8VzmMw_3Vg",
-authDomain: "mayurchildcarecenter.firebaseapp.com",
-projectId: "mayurchildcarecenter",
-storageBucket: "mayurchildcarecenter.firebasestorage.app",
-messagingSenderId: "118324665230",
-appId: "1:118324665230:web:c58231174106937808e2df",
+  apiKey: "AIzaSyAHaYMT_jYnLqrPnKyUnI4ES8VzmMw_3Vg",
+  authDomain: "mayurchildcarecenter.firebaseapp.com",
+  projectId: "mayurchildcarecenter",
+  storageBucket: "mayurchildcarecenter.firebasestorage.app",
+  messagingSenderId: "118324665230",
+  appId: "1:118324665230:web:c58231174106937808e2df",
 };
 
-// Initialize Firebase only if it hasn't been initialized already
-let app;
+const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+
 let db;
+let analytics;
 
 if (typeof window !== 'undefined') {
-  if (!getApps().length) {
-    app = initializeApp(firebaseConfig);
-  } else {
-    app = getApps()[0];
+  // Client-side initialization with persistence
+  try {
+    db = initializeFirestore(app, {
+      localCache: persistentLocalCache({
+        tabManager: persistentMultipleTabManager(),
+      }),
+    });
+  } catch (e) {
+    // Fallback if already initialized differently or error
+    db = getFirestore(app);
   }
 
-  // Initialize Firestore with persistent local cache
-  db = initializeFirestore(app, {
-    localCache: persistentLocalCache({
-      tabManager: persistentMultipleTabManager(),
-    }),
-  });
-
-  // Initialize analytics only in client-side
+  // Initialize analytics
   if (typeof window !== 'undefined') {
-    getAnalytics(app);
+    try {
+      analytics = getAnalytics(app);
+    } catch (e) { /* ignore */ }
   }
+} else {
+  // Server-side initialization (no persistence)
+  db = getFirestore(app);
 }
 
-export { app, db };
+export { app, db, analytics };

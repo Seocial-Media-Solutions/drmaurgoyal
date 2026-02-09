@@ -1,9 +1,18 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
+  const pathname = usePathname();
+
+  // Hide footer on admin routes
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
   return (
     <footer className="bg-[#172321] text-white relative overflow-hidden">
       {/* Decorative Elements */}

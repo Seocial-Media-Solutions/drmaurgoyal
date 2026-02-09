@@ -3,12 +3,37 @@ import fs from 'fs';
 import path from 'path';
 import ClientBlogPage from './ClientBlogPage.jsx';
 
+import { db } from '@/firebase/firebaseConfig';
+import { collection, getDocs } from 'firebase/firestore';
+
 // Function to read blogs data
-function getBlogs() {
+async function getBlogs() {
+  // Fetch local blogs
   const filePath = path.join(process.cwd(), 'public', 'blogs.json');
-  const fileData = fs.readFileSync(filePath, 'utf-8');
-  const blogs = JSON.parse(fileData);
-  return blogs;
+  let localBlogs = [];
+  try {
+    const fileData = fs.readFileSync(filePath, 'utf-8');
+    localBlogs = JSON.parse(fileData);
+  } catch (error) {
+    console.error("Error reading local blogs:", error);
+  }
+
+  // Fetch Firestore blogs
+  let firestoreBlogs = [];
+  try {
+    const querySnapshot = await getDocs(collection(db, "blogs"));
+    querySnapshot.forEach((doc) => {
+      firestoreBlogs.push({ id: doc.id, ...doc.data() });
+    });
+  } catch (error) {
+    console.error("Error fetching Firestore blogs:", error);
+  }
+
+  // Merge and sort by date (newest first)
+  const allBlogs = [...localBlogs, ...firestoreBlogs];
+  allBlogs.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  return allBlogs;
 }
 
 export const metadata = {
@@ -74,8 +99,9 @@ export const metadata = {
   },
 };
 
-export default function BlogPage() {
-  const blogs = getBlogs();
-  console.log(blogs)
+export const revalidate = 60;
+
+export default async function BlogPage() {
+  const blogs = await getBlogs();
   return <ClientBlogPage blogs={blogs} />;
 }
