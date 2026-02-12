@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase/firebaseConfig'; // Import Firestore instance
 import { collection, getDocs, addDoc, query, where } from 'firebase/firestore';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 
 const BookingSystem = () => {
   // State management

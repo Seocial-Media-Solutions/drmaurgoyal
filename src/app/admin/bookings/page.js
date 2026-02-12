@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { db } from '@/firebase/firebaseConfig';
 import {
     collection,
@@ -10,7 +10,7 @@ import {
     updateDoc,
     deleteDoc
 } from 'firebase/firestore';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import {
     Search,
     Filter,
@@ -56,18 +56,6 @@ export default function BookingsPage() {
         });
     };
 
-    // Fetch bookings when component mounts
-    useEffect(() => {
-        fetchBookings();
-    }, []);
-
-    // Apply filters when filter values change
-    useEffect(() => {
-        if (bookings.length > 0) {
-            applyBookingsFilters();
-        }
-    }, [bookings, filterDate, filterName]);
-
     // Fetch bookings from Firestore
     const fetchBookings = async () => {
         if (!db) return;
@@ -104,7 +92,7 @@ export default function BookingsPage() {
     };
 
     // Apply filters to bookings
-    const applyBookingsFilters = () => {
+    const applyBookingsFilters = useCallback(() => {
         let filtered = [...bookings];
 
         // Apply date filter
@@ -123,7 +111,19 @@ export default function BookingsPage() {
         }
 
         setFilteredBookings(filtered);
-    };
+    }, [bookings, filterDate, filterName]);
+
+    // Fetch bookings when component mounts
+    useEffect(() => {
+        fetchBookings();
+    }, []);
+
+    // Apply filters when filter values change
+    useEffect(() => {
+        if (bookings.length > 0) {
+            applyBookingsFilters();
+        }
+    }, [applyBookingsFilters, bookings.length]);
 
     // Clear filters
     const clearFilters = () => {

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Lock, User } from 'lucide-react';
 import { login } from '@/app/actions/auth';
 
@@ -97,9 +98,9 @@ export default function AdminLoginPage() {
                     </form>
                 </div>
                 <div className="bg-slate-50 px-8 py-4 border-t border-slate-100 flex justify-center">
-                    <a href="/" className="text-sm text-slate-500 hover:text-teal-600 font-medium">
+                    <Link href="/" className="text-sm text-slate-500 hover:text-teal-600 font-medium">
                         ← Back to Website
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

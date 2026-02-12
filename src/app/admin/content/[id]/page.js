@@ -3,6 +3,7 @@ import { db } from '@/firebase/firebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
 import { ArrowLeft, Calendar, User, Tag, FileText, Image as ImageIcon } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import BlogActions from './BlogActions';
 
 export const revalidate = 0;
@@ -79,10 +80,12 @@ export default async function BlogDetailsPage({ params }) {
                     {blog.image && (
                         <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
                             <div className="relative h-64 w-full bg-slate-100">
-                                <img
+                                <Image
                                     src={blog.image}
                                     alt={blog.alt || blog.title}
-                                    className="w-full h-full object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                             </div>
                             <div className="p-3 bg-slate-50 border-t border-slate-100 text-xs text-slate-500 flex items-center">

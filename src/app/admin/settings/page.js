@@ -9,7 +9,7 @@ export default function SettingsPage() {
             </div>
             <h1 className="text-2xl font-bold text-slate-800 mb-2">Admin Settings</h1>
             <p className="text-slate-500 max-w-md">
-                This module is currently under development. Soon you'll be able to configure system settings and preferences here.
+                This module is currently under development. Soon you&apos;ll be able to configure system settings and preferences here.
             </p>
         </div>
     );

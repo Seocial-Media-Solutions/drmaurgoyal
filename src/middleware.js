@@ -2,7 +2,12 @@ import { NextResponse } from 'next/server';
 import { jwtVerify } from 'jose';
 
 const COOKIE_NAME = process.env.COOKIE_NAME || 'admin_session_token';
-const JWT_SECRET = process.env.JWT_SECRET || 'your_super_secret_jwt_key_32_chars_long';
+const JWT_SECRET = process.env.JWT_SECRET;
+
+// Validate required environment variables
+if (!JWT_SECRET) {
+  throw new Error('Missing JWT_SECRET environment variable');
+}
 
 export async function middleware(request) {
     const path = request.nextUrl.pathname;

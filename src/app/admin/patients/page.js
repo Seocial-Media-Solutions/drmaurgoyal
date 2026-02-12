@@ -9,7 +9,7 @@ export default function PatientsPage() {
             </div>
             <h1 className="text-2xl font-bold text-slate-800 mb-2">Patients Management</h1>
             <p className="text-slate-500 max-w-md">
-                This module is currently under development. Soon you'll be able to manage patient records and history here.
+                This module is currently under development. Soon you&apos;ll be able to manage patient records and history here.
             </p>
         </div>
     );

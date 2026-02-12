@@ -14,11 +14,6 @@ const Navbar = () => {
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const navbarRef = useRef(null);
 
-  // Hide navbar on admin routes
-  if (pathname?.startsWith('/admin')) {
-    return null;
-  }
-
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -47,6 +42,11 @@ const Navbar = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [isOpen]);
+
+  // Hide navbar on admin routes
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   const toggleDropdown = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index);
