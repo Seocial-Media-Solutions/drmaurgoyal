@@ -24,8 +24,10 @@ export async function login(formData) {
             .setExpirationTime('24h') // Token expires in 24 hours
             .sign(secret);
 
+
         // Set secure cookie with JWT
-        cookies().set(COOKIE_NAME, token, {
+        const cookieStore = await cookies();
+        cookieStore.set(COOKIE_NAME, token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             maxAge: 60 * 60 * 24, // 1 day
@@ -40,6 +42,6 @@ export async function login(formData) {
 }
 
 export async function logout() {
-    cookies().delete(COOKIE_NAME);
+    (await cookies()).delete(COOKIE_NAME);
     redirect('/admin/login');
 }

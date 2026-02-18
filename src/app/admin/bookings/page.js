@@ -10,7 +10,7 @@ import {
     updateDoc,
     deleteDoc
 } from 'firebase/firestore';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import {
     Search,
     Filter,
