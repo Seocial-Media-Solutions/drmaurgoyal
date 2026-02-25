@@ -3,6 +3,7 @@ import React, { useState, useCallback } from 'react';
 import Carousel from 'react-multi-carousel';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import 'react-multi-carousel/lib/styles.css';
+import { getDirectImageUrl } from '@/lib/utils';
 
 const ImageGallerySlider = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -77,8 +78,8 @@ const ImageGallerySlider = () => {
 
   const navigateImage = useCallback((direction) => (e) => {
     e.stopPropagation();
-    const newIndex = direction === 'next' 
-      ? (selectedIndex + 1) % images.length 
+    const newIndex = direction === 'next'
+      ? (selectedIndex + 1) % images.length
       : (selectedIndex - 1 + images.length) % images.length;
     setSelectedIndex(newIndex);
     setSelectedImage(images[newIndex]);
@@ -86,7 +87,7 @@ const ImageGallerySlider = () => {
 
   const handleKeyDown = useCallback((e) => {
     if (!isLightboxOpen) return;
-    
+
     switch (e.key) {
       case 'ArrowLeft':
         navigateImage('prev')(e);
@@ -154,7 +155,7 @@ const ImageGallerySlider = () => {
         </div>
 
         {isLightboxOpen && (
-          <div 
+          <div
             className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center"
             onClick={closeLightbox}
           >
@@ -165,7 +166,7 @@ const ImageGallerySlider = () => {
             >
               <ChevronLeft className="w-10 h-10 text-green-400" /> {/* Increased size */}
             </button>
-            
+
             <button
               className="absolute right-6 top-1/2 -translate-y-1/2 bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-all duration-300" /* Increased size and padding */
               onClick={navigateImage('next')}

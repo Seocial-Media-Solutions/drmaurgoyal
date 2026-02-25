@@ -247,7 +247,7 @@ export default function AddBlogPage() {
                             <input
                                 type="text"
                                 name="image"
-                                placeholder="/images/example.jpg or https://..."
+                                placeholder="Google-Drive-Dublic-URL"
                                 value={formData.image}
                                 onChange={handleChange}
                                 className="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-black placeholder:text-slate-500"

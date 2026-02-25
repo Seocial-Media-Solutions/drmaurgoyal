@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { getDirectImageUrl } from '@/lib/utils';
 
 const GalleryPage = () => {
   // State for lightbox
@@ -185,7 +186,7 @@ const GalleryPage = () => {
                 <div className="relative h-72 md:h-96">
                   <div className="absolute inset-0 bg-gradient-to-t from-teal-600/40 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
                   <Image
-                    src={image.src}
+                    src={getDirectImageUrl(image.src)}
                     alt={image.alt}
                     fill
                     style={{ objectFit: 'cover' }}
@@ -274,7 +275,7 @@ const GalleryPage = () => {
               className="relative h-80 md:h-[75vh] w-full"
             >
               <Image
-                src={galleryImages[currentImageIndex].src}
+                src={getDirectImageUrl(galleryImages[currentImageIndex].src)}
                 alt={galleryImages[currentImageIndex].alt}
                 fill
                 style={{ objectFit: 'contain' }}

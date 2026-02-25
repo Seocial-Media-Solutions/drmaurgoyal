@@ -7,6 +7,7 @@ import { Baby, Brain, Stethoscope, ChevronLeft, ChevronRight } from 'lucide-reac
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState, useMemo } from 'react';
+import { getDirectImageUrl } from '@/lib/utils';
 
 const ClientBlogPage = ({ blogs }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +19,7 @@ const ClientBlogPage = ({ blogs }) => {
   }, [blogs]);
 
   const totalPages = Math.ceil(sortedBlogs.length / blogsPerPage);
-  
+
   const currentBlogs = useMemo(() => {
     const startIndex = (currentPage - 1) * blogsPerPage;
     return sortedBlogs.slice(startIndex, startIndex + blogsPerPage);
@@ -27,16 +28,16 @@ const ClientBlogPage = ({ blogs }) => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
     // Scroll to top of blog section
-    document.getElementById('blog-section')?.scrollIntoView({ 
-      behavior: 'smooth', 
-      block: 'start' 
+    document.getElementById('blog-section')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
     });
   };
 
   const getPageNumbers = () => {
     const pages = [];
     const maxVisiblePages = 5;
-    
+
     if (totalPages <= maxVisiblePages) {
       for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
@@ -56,7 +57,7 @@ const ClientBlogPage = ({ blogs }) => {
         pages.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
       }
     }
-    
+
     return pages;
   };
 
@@ -65,27 +66,27 @@ const ClientBlogPage = ({ blogs }) => {
     triggerOnce: true,
     threshold: 0.2,
   });
-  
+
   const [titleRef, titleInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
-  
+
   const [descRef, descInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
-  
+
   const [tagsRef, tagsInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
-  
+
   const [imageRef, imageInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-  
+
   const [credentialsRef, credentialsInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -98,7 +99,7 @@ const ClientBlogPage = ({ blogs }) => {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-16">
           <div className="md:flex">
             <div className="md:w-2/3 p-8 md:p-12">
-              <motion.div 
+              <motion.div
                 ref={badgeRef}
                 initial={{ opacity: 0, y: 10 }}
                 animate={badgeInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
@@ -107,8 +108,8 @@ const ClientBlogPage = ({ blogs }) => {
               >
                 Child Health Insights
               </motion.div>
-              
-              <motion.h1 
+
+              <motion.h1
                 ref={titleRef}
                 initial={{ opacity: 0, y: 20 }}
                 animate={titleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -117,8 +118,8 @@ const ClientBlogPage = ({ blogs }) => {
               >
                 Pediatric Health Blog by Dr. Mayur Kumar Goyal
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 ref={descRef}
                 initial={{ opacity: 0, y: 30 }}
                 animate={descInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -128,7 +129,7 @@ const ClientBlogPage = ({ blogs }) => {
                 {`Expert articles on pediatrics, neonatal care, and raising healthy children from one of Ajmer's leading pediatricians.`}
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 ref={tagsRef}
                 initial={{ opacity: 0, y: 30 }}
                 animate={tagsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -157,8 +158,8 @@ const ClientBlogPage = ({ blogs }) => {
               className="md:w-1/3 relative"
             >
               <div className="aspect-square w-full h-full relative">
-                <Image 
-                  src="/images/second.jpg" 
+                <Image
+                  src="/images/second.jpg"
                   alt="Dr. Mayur Kumar Goyal - Pediatrician & Neonatologist in Ajmer"
                   fill
                   className="object-cover"
@@ -168,7 +169,7 @@ const ClientBlogPage = ({ blogs }) => {
             </motion.div>
           </div>
           {/* Doctor credentials */}
-          <motion.div 
+          <motion.div
             ref={credentialsRef}
             initial={{ opacity: 0, y: 20 }}
             animate={credentialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -198,7 +199,7 @@ const ClientBlogPage = ({ blogs }) => {
             </div>
           </motion.div>
         </div>
-        
+
         {/* Blog Section Header */}
         <div id="blog-section" className="mb-8">
           <div className="flex justify-between items-center">
@@ -210,17 +211,17 @@ const ClientBlogPage = ({ blogs }) => {
             </div>
           </div>
         </div>
-        
+
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {currentBlogs.map((blog) => (
-            <article 
-              key={blog.id} 
+            <article
+              key={blog.id}
               className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl group"
             >
               <div className="relative aspect-video w-full overflow-hidden">
-                <Image 
-                  src={blog.image || '/images/placeholder.jpg'} 
+                <Image
+                  src={getDirectImageUrl(blog.image) || '/images/placeholder.jpg'}
                   alt={blog.alt || blog.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -279,11 +280,10 @@ const ClientBlogPage = ({ blogs }) => {
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                currentPage === 1
-                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                  : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow-sm'
-              }`}
+              className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors ${currentPage === 1
+                ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow-sm'
+                }`}
               aria-label="Previous page"
             >
               <ChevronLeft className="h-4 w-4 mr-1" />
@@ -297,13 +297,12 @@ const ClientBlogPage = ({ blogs }) => {
                   key={index}
                   onClick={() => typeof page === 'number' ? handlePageChange(page) : null}
                   disabled={page === '...'}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    page === currentPage
-                      ? 'bg-gradient-to-r from-blue-500 to-teal-500 text-white shadow-sm'
-                      : page === '...'
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${page === currentPage
+                    ? 'bg-gradient-to-r from-blue-500 to-teal-500 text-white shadow-sm'
+                    : page === '...'
                       ? 'text-gray-400 cursor-default'
                       : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow-sm'
-                  }`}
+                    }`}
                 >
                   {page}
                 </button>
@@ -314,11 +313,10 @@ const ClientBlogPage = ({ blogs }) => {
             <button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                currentPage === totalPages
-                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                  : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow-sm'
-              }`}
+              className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors ${currentPage === totalPages
+                ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow-sm'
+                }`}
               aria-label="Next page"
             >
               Next

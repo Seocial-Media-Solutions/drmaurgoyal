@@ -25,7 +25,7 @@ export default function RichTextEditor({ value, onChange }) {
             [{ 'header': [2, 3, false] }],
             ['bold', 'italic', 'underline', 'strike'],
             [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-            ['link', 'image'],
+            ['link'],
             ['clean'],
         ]
     }), []);
@@ -34,7 +34,7 @@ export default function RichTextEditor({ value, onChange }) {
         'header',
         'bold', 'italic', 'underline', 'strike',
         'list', 'bullet',
-        'link', 'image'
+        'link',
     ];
 
     const handleChange = (content) => {

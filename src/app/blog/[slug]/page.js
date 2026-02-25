@@ -2,10 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import Image from 'next/image';
+import React, { useMemo } from 'react';
 // import { useEffect } from 'react';
 
 import { db } from '@/firebase/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { getDirectImageUrl } from '@/lib/utils';
 
 // Function to read blogs data
 async function getBlogs() {
@@ -59,7 +61,7 @@ export async function generateMetadata({ params }) {
       url: `https://drmayurkumargoyal.com/blog/${blog.slug}`,
       images: [
         {
-          url: blog.image || '/images/mayurchildcarecenter.webp',
+          url: getDirectImageUrl(blog.image) || '/images/mayurchildcarecenter.webp',
           width: 1200,
           height: 630,
           alt: blog.alt || blog.title,
@@ -74,13 +76,26 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: blog.title,
       description: blog.metaDescription || blog.excerpt || blog.content.substring(0, 160),
-      images: [blog.image || '/images/mayurchildcarecenter.webp'],
+      images: [getDirectImageUrl(blog.image) || '/images/mayurchildcarecenter.webp'],
     },
   };
 }
 
 // Custom blog content renderer component
 function BlogContent({ content }) {
+  // Function to process content and replace drive links in <img> tags
+  const processedContent = useMemo(() => {
+    if (!content) return '';
+
+    // Regular expression to find img tags and their src attributes
+    const imgTagRegex = /<img[^>]+src="([^">]+)"/g;
+
+    return content.replace(imgTagRegex, (match, src) => {
+      const directUrl = getDirectImageUrl(src);
+      return match.replace(src, directUrl);
+    });
+  }, [content]);
+
   // Updated custom styles with new color scheme
   const customStyles = `
     .blog-content h2 {
@@ -121,6 +136,14 @@ function BlogContent({ content }) {
     .blog-content a:hover {
       color: #0d9488; /* teal-600 */
     }
+
+    .blog-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    }
     
     .blog-content ul, .blog-content ol {
       margin-left: 1.5rem;
@@ -145,7 +168,7 @@ function BlogContent({ content }) {
   return (
     <div className="blog-content">
       <style dangerouslySetInnerHTML={{ __html: customStyles }} />
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div dangerouslySetInnerHTML={{ __html: processedContent }} />
     </div>
   );
 }
@@ -193,7 +216,7 @@ export default async function SingleBlogPage({ params }) {
       {/* Hero section with image */}
       <div className="relative w-full h-80 md:h-136 max-w-8xl mx-auto ">
         <Image
-          src={blog.image || '/images/mayurchildcarecenter.webp'}
+          src={getDirectImageUrl(blog.image) || '/images/mayurchildcarecenter.webp'}
           alt={blog.alt || blog.title}
           fill
           priority
