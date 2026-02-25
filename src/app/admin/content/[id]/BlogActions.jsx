@@ -6,7 +6,7 @@ import { db } from '@/firebase/firebaseConfig';
 import { deleteDoc, doc } from 'firebase/firestore';
 import Link from 'next/link';
 import { Edit, Trash2, Globe } from 'lucide-react';
-
+import { getDirectImageUrl } from '@/lib/utils';
 export default function BlogActions({ blogId, slug }) {
     const router = useRouter();
 

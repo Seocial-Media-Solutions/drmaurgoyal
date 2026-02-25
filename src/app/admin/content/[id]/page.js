@@ -4,7 +4,8 @@ import { doc, getDoc } from 'firebase/firestore';
 import { ArrowLeft, Calendar, User, Tag, FileText, Image as ImageIcon } from 'lucide-react';
 import Link from 'next/link';
 import BlogActions from './BlogActions';
-
+import { getDirectImageUrl } from '@/lib/utils';
+import Image from 'next/image';
 export const revalidate = 0;
 
 async function getBlog(id) {
@@ -79,10 +80,12 @@ export default async function BlogDetailsPage({ params }) {
                     {blog.image && (
                         <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
                             <div className="relative h-64 w-full bg-slate-100">
-                                <img
-                                    src={blog.image}
+                                <Image
+                                    src={ getDirectImageUrl(blog.image) || blog.image}
                                     alt={blog.alt || blog.title}
                                     className="w-full h-full object-cover"
+                                    width={1000}
+                                    height={1000}
                                 />
                             </div>
                             <div className="p-3 bg-slate-50 border-t border-slate-100 text-xs text-slate-500 flex items-center">
@@ -95,12 +98,12 @@ export default async function BlogDetailsPage({ params }) {
                     {/* Content Preview */}
                     <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
                         <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
-                            <h3 className="font-semibold text-slate-800 flex items-center">
+                            <h3 className="font-semibold text-black flex items-center">
                                 <FileText className="w-4 h-4 mr-2 text-slate-400" />
                                 Blog Content
                             </h3>
                         </div>
-                        <div className="p-8 prose max-w-none prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-p:text-slate-700 prose-a:text-teal-600">
+                        <div className="p-8 prose max-w-none prose-slate prose-headings:font-bold prose-headings:text-black prose-p:text-black prose-a:text-teal-600">
                             <div dangerouslySetInnerHTML={{ __html: blog.content }} />
                         </div>
                     </div>
