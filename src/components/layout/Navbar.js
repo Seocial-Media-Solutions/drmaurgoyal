@@ -262,14 +262,14 @@ const Navbar = () => {
             {/*  newLogo */}
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center">
-                <div className="h-16 w-16   ml-[-20px] md:h-20 md:w-20 relative">
+                <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 relative">
                   <Image
                     src="/images/NewLogo.jpeg"
                     alt="Mayur Childern Hospital Logo"
                     width={100}
                     height={100}
                     priority
-                    className="object-contain rounded-full"
+                    className="object-contain rounded-full w-full h-full"
                     unoptimized={true}
                   />
                 </div>
